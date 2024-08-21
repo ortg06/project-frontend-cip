@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+.disabled-element {
+  pointer-events: none;
+}
+
+/*modificacion global a todos los thead de tables*/
+.table thead th{
+  background-color: #199db9 !important;
+  color: white;
+}
+
+th {
+  white-space: nowrap; /*el encabezado se muestra en una linea*/
+}
+
