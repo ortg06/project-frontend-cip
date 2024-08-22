@@ -1,0 +1,72 @@
+stages:
+  - build
+  - package
+  - deploy
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "wings"
+      variables:
+        DOCKER_REGISTRY: ${ECR_REGISTRY_DEV}
+        APP_NAME: ${ECR_REPOSITORY_NAME_DEV}
+        REGION: ${AWS_DEFAULT_REGION}
+        ENV: ${ENV_PROFILE_DEV}
+
+build app:
+  stage: build
+  image: node:18.18-alpine
+  tags:
+    - frontend
+    - sicex
+  script:
+    - mv $PROFILE_FILE_DEV src/environments/environment.awsdev.ts
+    - npm set strict-ssl false
+    - npm install --force --silent
+    - npm run build:$ENV
+    - echo "BUILD SUCCESSFUL"
+    - echo "#$ENV" > README.md
+    - echo "Artifact generated to $ENV environment" >> README.md
+    - echo "Version Build $CI_COMMIT_SHORT_SHA" >> README.md
+    - mkdir artifact/
+    - mv dist artifact/
+    - mv Dockerfile artifact/
+    - mv $NGINX_CONTAINER_CONFIG artifact/nginx.conf
+    - mv README.md artifact/
+  artifacts:
+    paths:
+      - artifact
+    expire_in: 2 week
+
+build docker image:
+  stage: package
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "wings"
+  needs: ["build app"]
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  tags:
+    - frontend
+    - sicex
+  dependencies:
+    - build app
+  script:
+    - cd artifact
+    - mv $KANIKO_CONFIG /kaniko/.docker/config.json
+    - /kaniko/executor --context "${CI_PROJECT_DIR}/artifact" --dockerfile "${CI_PROJECT_DIR}/artifact/Dockerfile" --destination $DOCKER_REGISTRY/$APP_NAME:latest
+
+deploy eks:
+  stage: deploy
+  dependencies:
+    - build docker image
+  image:
+    name: bitnami/kubectl:latest
+    entrypoint: [ '' ]
+  tags:
+    - frontend
+    - sicex
+  script:
+    - kubectl rollout restart -n ${K8S_NAMESPACE} deployment ${K8S_DEPLOYMENT_NAME}
+  environment:
+    name : development
+    url: https://sfce-dev.ciexelsalvador.gob.sv
