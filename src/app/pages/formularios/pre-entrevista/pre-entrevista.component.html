@@ -1,1 +1,268 @@
-<p>pre-entrevista works!</p>
+<div class="content-wrapper" >
+    <!-- Content Wrapper. Contains page content -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 style="font-family: 'Franklin Gothic Medium'">Formulario Pre Entrevista</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                        <li class="breadcrumb-item active">Formulario Pre Entrevista</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <!-- /.row bs steppers-->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Pre entrevista</h3>
+                        </div>
+                        <div class="card-body ">
+                            <div #stepper class="bs-stepper">
+                                <div class="bs-stepper-header" role="tablist">
+                                    <div class="step" data-target="#datos-general">
+                                        <button type="button" class="step-trigger" role="tab" aria-controls="datos-general" id="datos-general-trigger">
+                                            <span class="bs-stepper-circle" style="background-color: #008F87;">1</span>
+                                            <span class="bs-stepper-label" style="font-size: 15px;">Datos generales</span>
+                                        </button>
+                                    </div>
+                                    <div class="line"></div>
+                                    <div class="step" data-target="#information-part">
+                                        <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
+                                            <span class="bs-stepper-circle" style="background-color: #008F87;">2</span>
+                                            <span class="bs-stepper-label" style="font-size: 15px;">Información adicional</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="bs-stepper-content">
+                                    <!-- Steps content -->
+                                    <div id="datos-general" class="content" role="tabpanel" aria-labelledby="datos-general-trigger">
+                                        <div class="row">
+                                            <div class="form-group col-sm-6">
+                                                <label>Apellidos</label>
+                                                <input type="text" class="form-control" placeholder="Ingrese el apellido..">
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label>Nombres</label>
+                                                <input type="text" class="form-control" placeholder="Ingrese el nombre..">
+                                            </div>
+                                        </div>
+                                        <!-- radio -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Estado Civil</label>
+                                                    <select class="form-control select2" style="width: 100%;">
+                                                        <option>Soltero</option>
+                                                        <option>Casado</option>
+                                                        <option>Viudo</option>
+                                                        <option>Divorciado</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Tiene hijos</label>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="radio1">
+                                                        <label class="form-check-label">Si</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="radio1" checked>
+                                                        <label class="form-check-label">No</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- radio -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Ocupación actual</label>
+                                                    <input type="text" class="form-control" placeholder="Ingrese la ocupación..">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Con quien vive</label>
+                                                    <input type="text" class="form-control" placeholder="Ingrese..">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Date -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Date:</label>
+                                                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                                        <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" data-inputmask-inputformat="dd/mm/yyyy" data-mask/>
+                                                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Rango salarial</label>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="radio3">
+                                                        <label class="form-check-label">De 300 a 500</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="radio3" checked>
+                                                        <label class="form-check-label">De 500 a 800</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="radio3">
+                                                        <label class="form-check-label">Arriba de 800</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Tiene familiares u otras personas que dependan económicamente de usted</label>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="radio2">
+                                                        <label class="form-check-label">Si</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="radio2" checked>
+                                                        <label class="form-check-label">No</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="information-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>¿De qué forma conoció al Centro Integral de Psicología Trasformar para Transcender?</label>
+                                                    <select class="form-control select2" style="width: 100%;">
+                                                        <option>Referido</option>
+                                                        <option>Redes sociales</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>¿El servicio que usted solicita es?</label>
+                                                    <select class="form-control select2" style="width: 100%;">
+                                                        <option>Para usted</option>
+                                                        <option>Alguien mas</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>¿Ha tenido acompañamiento psicológico anteriormente?</label>
+                                                    <select class="form-control select2" style="width: 100%;">
+                                                        <option>Si</option>
+                                                        <option>No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>¿porque motivo recibio acompañamiento psicológico?</label>
+                                                    <input type="text" class="form-control" placeholder="Ingrese el motivo..">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>¿Hace cuanto comenzó esta situación?</label>
+                                                    <input type="text" class="form-control" placeholder="Ingrese hace cuanto..">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>¿porque solicita ayuda ahora?</label>
+                                                    <input type="text" class="form-control" placeholder="Ingrese el porque..">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>¿Tiene preferencia fuerte por un psicólogo de género?</label>
+                                                    <select class="form-control select2" style="width: 100%;">
+                                                        <option>Masculino</option>
+                                                        <option>Femenino</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>¿En que modalidad le gustaria iniciar el proceso?</label>
+                                                    <select class="form-control select2" style="width: 100%;">
+                                                        <option>Modalidad virtual</option>
+                                                        <option>Modalidad presencial</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>¿Conoce algún enfoque terapéutico</label>
+                                                    <input type="text" class="form-control" placeholder="Ingrese el enfoque..">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>¿Tiene alguna preferencia fuerte por uso de libros de autoayuda, grupos de auto ayuda, aplicaciones informaticas
+                                                        u otros recursos además de la terapia?
+                                                    </label>
+                                                    <input type="text" class="form-control" placeholder="Ingrese preferencia..">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>¿Ha sido referido a un terapeuta en especifico?</label>
+                                                    <input type="text" class="form-control" placeholder="Ingrese el terapeuta..">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="button-container">
+                                <div class="button-row">
+                                    <button #nextButton class="btn btn-primary" style="margin-right: 10px">Siguiente</button>
+                                    <button #previousButton class="btn btn-primary">Atrás</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+
+
+
+
+
+

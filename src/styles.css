@@ -5,11 +5,48 @@
 
 /*modificacion global a todos los thead de tables*/
 .table thead th{
-  background-color: #199db9 !important;
+  background-color: #008F87 !important;
   color: white;
 }
 
 th {
   white-space: nowrap; /*el encabezado se muestra en una linea*/
 }
+
+.card-header{
+  background-color: #008F87 !important;
+}
+
+.main-sidebar {
+  background-color: #634834 !important; /* Cambia el color de fondo */
+}
+
+/* Cambia el color de fondo del elemento principal del menú cuando está activo */
+.nav-item.menu.menu-open > .nav-link {
+  background-color: #008F87 !important;
+  color: white !important;
+}
+
+/* Cambia el color de fondo del subelemento activo a blanco */
+.nav-item .nav-link.active {
+  background-color: white !important;
+  color:  #634834 !important;
+}
+
+/* Color de texto predeterminado para enlaces */
+.nav-item .nav-link {
+  color: white;
+}
+
+.main-header{
+  background-color: #634834 !important;
+}
+
+.round-image {
+  border-radius: 50%; /* Hace la imagen redonda */
+  width: 300px; /* Asegúrate de que el ancho sea igual al alto */
+  height: 300px; /* Asegúrate de que el alto sea igual al ancho */
+  object-fit: cover; /* Asegura que la imagen se ajuste al contenedor sin distorsionarse */
+}
+
 

@@ -8,7 +8,7 @@ import {PreEntrevistaComponent} from "./formularios/pre-entrevista/pre-entrevist
 
 const routes: Routes = [
     {
-      path: "auth", component: PagesComponent,
+      path: "", component: PagesComponent,
       children: [
         {
           path: 'home',

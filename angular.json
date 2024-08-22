@@ -25,10 +25,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bs-stepper/dist/css/bs-stepper.min.css"
             ],
             "scripts": [
-
+              "node_modules/bs-stepper/dist/js/bs-stepper.min.js"
             ]
           },
           "configurations": {
@@ -109,9 +110,12 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bs-stepper/dist/css/bs-stepper.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bs-stepper/dist/js/bs-stepper.min.js"
+            ]
           }
         }
       }

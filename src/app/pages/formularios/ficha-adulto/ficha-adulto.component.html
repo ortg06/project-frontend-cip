@@ -1,268 +1,474 @@
 <div class="content-wrapper" >
     <!-- Content Wrapper. Contains page content -->
-        <section class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 style="font-family: 'Franklin Gothic Medium'">Formulario Pre Entrevista</h1>
-                    </div>
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Formulario Pre Entrevista</li>
-                        </ol>
-                    </div>
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 style="font-family: 'Franklin Gothic Medium'">Formulario Ficha Adulto</h1>
                 </div>
-            </div><!-- /.container-fluid -->
-        </section>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                        <li class="breadcrumb-item active">Formulario Ficha Adulto</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
 
-        <!-- Main content -->
-        <section class="content">
-            <div class="container-fluid">
-                <!-- /.row bs steppers-->
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card card-primary">
-                            <div class="card-header" style="background-color: #008F87;">
-                                <h3 class="card-title">Pre entrevista</h3>
-                            </div>
-                            <div class="card-body p-0">
-                                <div class="bs-stepper">
-                                    <div class="bs-stepper-header" role="tablist">
-                                        <!-- your steps here -->
-                                        <div class="step" data-target="#logins-part">
-                                            <button type="button" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger">
-                                                <span class="bs-stepper-circle" style="background-color: #008F87;">1</span>
-                                                <span class="bs-stepper-label" style="font-size: 15px;">Datos generales</span>
-                                            </button>
-                                        </div>
-                                        <div class="line"></div>
-                                        <div class="step" data-target="#information-part">
-                                            <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
-                                                <span class="bs-stepper-circle" style="background-color: #008F87;">2</span>
-                                                <span class="bs-stepper-label" style="font-size: 15px;">Información adicional</span>
-                                            </button>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <!-- /.row bs steppers-->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Formulario Ficha Adulto</h3>
+                        </div>
+                        <div class="card-body ">
+                            <div #stepper class="bs-stepper">
+                                <div class="bs-stepper-header" role="tablist">
+                                    <div class="step" data-target="#datos-general">
+                                        <button type="button" class="step-trigger" role="tab" aria-controls="datos-general" id="datos-general-trigger">
+                                            <span class="bs-stepper-circle" style="background-color: #008F87;">1</span>
+                                            <span class="bs-stepper-label" style="font-size: 15px;">Datos generales</span>
+                                        </button>
+                                    </div>
+                                    <div class="line"></div>
+                                    <div class="step" data-target="#information-part">
+                                        <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
+                                            <span class="bs-stepper-circle" style="background-color: #008F87;">2</span>
+                                            <span class="bs-stepper-label" style="font-size: 15px;">Información adicional</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="bs-stepper-content">
+                                    <!-- Steps content -->
+                                    <div id="datos-general" class="content" role="tabpanel" aria-labelledby="datos-general-trigger">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="form-group col-sm-6">
+                                                    <label style="color: #634834;">Apellidos</label>
+                                                    <input type="text" class="form-control" placeholder="Ingrese el apellido..">
+                                                </div>
+                                                <div class="form-group col-sm-6">
+                                                    <label>Nombres</label>
+                                                    <input type="text" class="form-control" placeholder="Ingrese el nombre..">
+                                                </div>
+                                            </div>
+                                            <!-- radio -->
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label>Fecha de nacimiento:</label>
+                                                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                                            <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate"/>
+                                                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label>Lugar de nacimiento</label>
+                                                        <select id="departments" class="form-control select2" style="width: 100%;">
+                                                            <option value="AH">Ahuachapán</option>
+                                                            <option value="CA">Cabañas</option>
+                                                            <option value="CH">Chalatenango</option>
+                                                            <option value="CU">Cuscatlán</option>
+                                                            <option value="LI">La Libertad</option>
+                                                            <option value="PA">La Paz</option>
+                                                            <option value="UN">La Unión</option>
+                                                            <option value="MO">Morazán</option>
+                                                            <option value="SM">San Miguel</option>
+                                                            <option value="SS">San Salvador</option>
+                                                            <option value="SV">San Vicente</option>
+                                                            <option value="SA">Santa Ana</option>
+                                                            <option value="SO">Sonsonate</option>
+                                                            <option value="US">Usulután</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label>Municipios</label>
+                                                        <select id="municipalities" class="form-control select2" style="width: 100%;">
+                                                            <optgroup label="Ahuachapán">
+                                                                <option value="Ahuachapán">Ahuachapán</option>
+                                                                <option value="Apaneca">Apaneca</option>
+                                                                <option value="Atiquizaya">Atiquizaya</option>
+                                                                <!-- Add more municipalities of Ahuachapán here -->
+                                                            </optgroup>
+                                                            <optgroup label="Santa Ana">
+                                                                <option value="Santa Ana">Santa Ana</option>
+                                                                <option value="Metapán">Metapán</option>
+                                                                <option value="Chalchuapa">Chalchuapa</option>
+                                                                <!-- Add more municipalities of Santa Ana here -->
+                                                            </optgroup>
+                                                            <!-- Add more optgroups and options for other departments and municipalities -->
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label>Nacionalidad</label>
+                                                        <input type="text" class="form-control" placeholder="Ingrese la nacionalidad...">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label>Género</label>
+                                                        <input type="text" class="form-control" placeholder="Ingrese su género...">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label>No. de documento de identidad(DUI/Pasaporte)</label>
+                                                        <input type="text" class="form-control" placeholder="Ingrese documento de identidad...">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label>No. teléfono celular</label>
+                                                        <input type="text" class="form-control" placeholder="Ingrese teléfono celular...">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label>No. Teléfono casa</label>
+                                                        <input type="text" class="form-control" placeholder="Ingrese teléfono casa...">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label>No. teléfono adicional</label>
+                                                        <input type="text" class="form-control" placeholder="Ingrese teléfono adicional...">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Dirección actual completa de residencia</label>
+                                                        <input type="text" class="form-control" placeholder="Ingrese lugar actual de residencia...">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Correo electrónico</label>
+                                                        <input type="text" class="form-control" placeholder="Ingrese correo electrónico...">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Tiene hijos</label>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="radio1">
+                                                            <label class="form-check-label">Si</label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="radio1" checked>
+                                                            <label class="form-check-label">No</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Cuantos hijos</label>
+                                                        <input type="text" class="form-control" placeholder="Ingrese cantidad de hijos...">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label>Estudia actualmente</label>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="radio2">
+                                                            <label class="form-check-label">Si</label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="radio2" checked>
+                                                            <label class="form-check-label">No</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label>Lugar de estudio</label>
+                                                        <input type="text" class="form-control" placeholder="Ingrese lugar de estudio...">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label>Especialidad de estudio</label>
+                                                        <input type="text" class="form-control" placeholder="Ingrese especialidad...">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label>Grado académico alcanzado</label>
+                                                        <select class="form-control select3" style="width: 100%;">
+                                                            <option>Primaria (hasta 6° grado)</option>
+                                                            <option>Secundaria (hasta 9° grado)</option>
+                                                            <option>Bachillerato General</option>
+                                                            <option>Bachillerato Técnico</option>
+                                                            <option>Técnico</option>
+                                                            <option>Licenciatura</option>
+                                                            <option>Maestría</option>
+                                                            <option>Doctorado</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label>Trabaja actualmente</label>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="radio3">
+                                                            <label class="form-check-label">Si</label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="radio3" checked>
+                                                            <label class="form-check-label">No</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label>Lugar de trabajo</label>
+                                                        <input type="text" class="form-control" placeholder="Ingrese lugar de trabajo...">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label>Cargo que desempeña</label>
+                                                        <input type="text" class="form-control" placeholder="Ingrese cargo...">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <label>Padece de alguna enfermedad física</label>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="radio4">
+                                                            <label class="form-check-label">Si</label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="radio4" checked>
+                                                            <label class="form-check-label">No</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>Especificar que enfermedad física padece</label>
+                                                        <input type="text" class="form-control" placeholder="Ingrese enfermedad física..">
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="bs-stepper-content">
-                                        <!-- your steps content here -->
-                                        <!-- datos generales -->
-                                        <div id="logins-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger">
-
-                                            <div class="card-body">
-                                                <div class="row">
-                                                    <div class="form-group col-sm-6">
-                                                        <label>Apellidos</label>
-                                                        <input type="text" class="form-control" placeholder="Ingrese el apellido..">
+                                    <div id="information-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label>¿Existen antecedentes psiquiátricos en su familia?</label>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="radio5">
+                                                        <label class="form-check-label">Si</label>
                                                     </div>
-                                                    <div class="form-group col-sm-6">
-                                                        <label>Nombres</label>
-                                                        <input type="text" class="form-control" placeholder="Ingrese el nombre..">
-                                                    </div>
-                                                </div>
-                                                <!-- radio -->
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label>Estado Civil</label>
-                                                            <select class="form-control select2" style="width: 100%;">
-                                                                <option>Soltero</option>
-                                                                <option>Casado</option>
-                                                                <option>Viudo</option>
-                                                                <option>Divorciado</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label>Tiene hijos</label>
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="radio" name="radio1">
-                                                                <label class="form-check-label">Si</label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="radio" name="radio1" checked>
-                                                                <label class="form-check-label">No</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- radio -->
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label>Ocupación actual</label>
-                                                            <input type="text" class="form-control" placeholder="Ingrese la ocupación..">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label>Con quien vive</label>
-                                                            <input type="text" class="form-control" placeholder="Ingrese..">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Date -->
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label>Date:</label>
-                                                            <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                                                <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" data-inputmask-inputformat="dd/mm/yyyy" data-mask/>
-                                                                <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                                                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label>Rango salarial</label>
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="radio" name="radio3">
-                                                                <label class="form-check-label">De 300 a 500</label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="radio" name="radio3" checked>
-                                                                <label class="form-check-label">De 500 a 800</label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="radio" name="radio3">
-                                                                <label class="form-check-label">Arriba de 800</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label>Tiene familiares u otras personas que dependan económicamente de usted</label>
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="radio" name="radio2">
-                                                                <label class="form-check-label">Si</label>
-                                                            </div>
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="radio" name="radio2" checked>
-                                                                <label class="form-check-label">No</label>
-                                                            </div>
-                                                        </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="radio5" checked>
+                                                        <label class="form-check-label">No</label>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button class="btn btn-primary" onclick="stepper.next()">Siguiente</button>
+                                            <div class="col-sm-8">
+                                                <div class="form-group">
+                                                    <label>¿Que diagnostico tiene su familiar?</label>
+                                                    <input type="text" class="form-control" placeholder="Ingrese el diagnostico de su familiar..">
+                                                </div>
+                                            </div>
                                         </div>
-                                        <!-- datos adicionales -->
-                                        <div id="information-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label>¿De qué forma conoció al Centro Integral de Psicología Trasformar para Transcender?</label>
-                                                        <select class="form-control select2" style="width: 100%;">
-                                                            <option>Referido</option>
-                                                            <option>Redes sociales</option>
-                                                        </select>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Actualmente se encuentra o se ha encontrado Ud. ¿En Tratamiento Psiquiátrico?</label>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="radio6">
+                                                        <label class="form-check-label">Si</label>
                                                     </div>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label>¿El servicio que usted solicita es?</label>
-                                                        <select class="form-control select2" style="width: 100%;">
-                                                            <option>Para usted</option>
-                                                            <option>Alguien mas</option>
-                                                        </select>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="radio6" checked>
+                                                        <label class="form-check-label">No</label>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label>¿Ha tenido acompañamiento psicológico anteriormente?</label>
-                                                        <select class="form-control select2" style="width: 100%;">
-                                                            <option>Si</option>
-                                                            <option>No</option>
-                                                        </select>
-                                                    </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>¿Cual es el diagnostico brindado por su médico?</label>
+                                                    <textarea type="text" class="form-control" placeholder="Ingrese el diagnostico..."></textarea>
                                                 </div>
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label>¿porque motivo recibio acompañamiento psicológico?</label>
-                                                        <input type="text" class="form-control" placeholder="Ingrese el motivo..">
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>¿Cual es/son los medicamentos recetados?</label>
+                                                    <input type="text" class="form-control" placeholder="Ingrese los medicamentos...">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>¿Cuál ha sido el tiempo estipulado para el tratamiento? </label>
+                                                    <input type="text" class="form-control" placeholder="Ingrese el tiempo estipulado...">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Servicio que solicita</label>
+                                                    <select class="form-control select3" style="width: 100%;">
+                                                        <option>Terapia individual</option>
+                                                        <option>Consejería</option>
+                                                        <option>Terapia de pareja</option>
+                                                        <option>Evaluación psicológica</option>
+                                                        <option>Terapia de familia</option>
+                                                        <option>Terapia de Grupo</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Modalidad del servicio que solicita</label>
+                                                    <select class="form-control select3" style="width: 100%;">
+                                                        <option>Presencial</option>
+                                                        <option>Virtual</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>¿Cuál es el motivo de su consulta?</label>
+                                                    <textarea type="text" class="form-control" placeholder="Ingrese el motivo de consulta..."></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>¿Desde cuándo se presenta el problema?</label>
+                                                    <input type="text" class="form-control" placeholder="Ingrese desde cuando se presenta..">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label>¿Ha asistido antes a Consultas Psicológica? </label>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="radio7">
+                                                        <label class="form-check-label">Si</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="radio7" checked>
+                                                        <label class="form-check-label">No</label>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label>¿Hace cuanto comenzó esta situación?</label>
-                                                        <input type="text" class="form-control" placeholder="Ingrese hace cuanto..">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label>¿porque solicita ayuda ahora?</label>
-                                                        <input type="text" class="form-control" placeholder="Ingrese el porque..">
-                                                    </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label>¿En que año?</label>
+                                                    <input type="text" class="form-control" placeholder="Ingrese el año..">
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label>¿Tiene preferencia fuerte por un psicólogo de género?</label>
-                                                        <select class="form-control select2" style="width: 100%;">
-                                                            <option>Masculino</option>
-                                                            <option>Femenino</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label>¿En que modalidad le gustaria iniciar el proceso?</label>
-                                                        <select class="form-control select2" style="width: 100%;">
-                                                            <option>Modalidad virtual</option>
-                                                            <option>Modalidad presencial</option>
-                                                        </select>
-                                                    </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>¿Que consultó en este momento?</label>
+                                                    <textarea type="text" class="form-control" placeholder="Ingrese el motivo..."></textarea>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label>¿Conoce algún enfoque terapéutico</label>
-                                                        <input type="text" class="form-control" placeholder="Ingrese el enfoque..">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label>¿Tiene alguna preferencia fuerte por uso de libros de autoayuda, grupos de auto ayuda, aplicaciones informaticas
-                                                            u otros recursos además de la terapia?
-                                                        </label>
-                                                        <input type="text" class="form-control" placeholder="Ingrese preferencia..">
-                                                    </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label>En caso de emergencia, ¿A quién podemos llamar? (Favor coloque el nombre completo de la persona). </label>
+                                                    <input type="text" class="form-control" placeholder="Ingrese el nombre..">
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <label>¿Ha sido referido a un terapeuta en especifico?</label>
-                                                        <input type="text" class="form-control" placeholder="Ingrese el terapeuta..">
-                                                    </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label>Parentesco</label>
+                                                    <input type="text" class="form-control" placeholder="Ingrese el parentesco...">
                                                 </div>
                                             </div>
-                                            <button class="btn btn-primary" onclick="stepper.previous()">Atrás</button>
-                                            <button type="submit" class="btn btn-primary">Guardar</button>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label>N° de teléfono</label>
+                                                    <input type="text" class="form-control" placeholder="Ingrese el n° de teléfono...">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Comentarios adicionales</label>
+                                                    <textarea class="form-control" rows="3" placeholder="Ingrese comentario adicional..."></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group mb-0">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" name="terms" class="custom-control-input" id="checkterms" onchange="checkTerms()">
+                                                    <label class="custom-control-label" for="checkterms">Toda la información anteriormente proporcionada esta completada para los fines que se estime convenientes y quede enterado/a que es de uso confidencial.</label>
+                                                </div>
+                                                &nbsp;
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="button-container">
+                                <div class="button-row">
+                                    <button #nextButton class="btn btn-primary" style="margin-right: 10px">Siguiente</button>
+                                    <button #previousButton class="btn btn-primary">Atrás</button>
+                                </div>
+                            </div>
                         </div>
-                        <!-- /.card -->
                     </div>
+                    <!-- /.card -->
                 </div>
+            </div>
 
-            </div><!-- /.container-fluid -->
-        </section>
-        <!-- /.content -->
-    </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
 
 
 
