@@ -97,6 +97,76 @@ function select2DependentWith2Params(element, url, rows, parentElement1,parentEl
     }
 }
 
+const select2WithChildrens = function (element, url, rows, isIntoForm = true) {
+    $(element).select2({
+        ajax: {
+            url: url,
+            dataType: 'json',
+            data: function (params) {
+                return {
+                    q: params.term, // search term
+                    page: params.page || 1,
+                    rows: rows
+                };
+            },
+            processResults: function (data, params) {
+                params.page = params.page || 1;
+
+                // Aplanar la estructura para incluir tanto los departamentos como los municipios
+                const results = data.results.reduce((acc, item) => {
+                    // Añadir el departamento
+                    acc.push({
+                        id: item.id,
+                        text: item.text,
+                        disabled: true // Deshabilitar para que no se pueda seleccionar el departamento directamente
+                    });
+
+                    // Añadir municipios
+                    if (item.extraData) {
+                        item.extraData.forEach(municipio => {
+                            acc.push({
+                                id: municipio.id,
+                                text: `${municipio.text}` // Prefijo para los municipios
+                            });
+                        });
+                    }
+                    return acc;
+                }, []);
+
+                return {
+                    results: results,
+                    pagination: {
+                        more: data.pagination.more
+                    }
+                };
+            },
+            cache: true
+        },
+        templateResult: function (data) {
+            const $result = $('<span>').text(data.text);
+
+            // Aplica negrita a los departamentos usando estilo en línea
+            if (data.disabled) {
+                $result.css('font-weight', 'bold'); // Aplicar negrita en línea
+            }
+
+            return $result;
+        },
+        templateSelection: function (data) {
+            // Asegúrate de que el objeto de datos tenga el texto
+            if (!data.text) {
+                return '';
+            }
+            return data.text;
+        }
+    });
+
+   /* if (isIntoForm) {
+        $(element).on("select2:close", function (e) {
+            $(this).valid();
+        });
+    }*/
+}
 const select2ChangeSingle = function (element, url, rows, parentId1, parentId2, isIntoForm = true) {
     $(element)
         .select2({

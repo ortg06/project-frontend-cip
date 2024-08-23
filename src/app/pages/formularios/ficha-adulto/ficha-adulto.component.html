@@ -50,65 +50,45 @@
                                             <div class="row">
                                                 <div class="form-group col-sm-6">
                                                     <label style="color: #634834;">Apellidos</label>
-                                                    <input type="text" class="form-control" placeholder="Ingrese el apellido..">
+                                                    <input id="apellidos" name="apellidos" type="text" class="form-control" placeholder="Ingrese los apellidos">
                                                 </div>
                                                 <div class="form-group col-sm-6">
                                                     <label>Nombres</label>
-                                                    <input type="text" class="form-control" placeholder="Ingrese el nombre..">
+                                                    <input id="nombres" name="nombres"  type="text" class="form-control" placeholder="Ingrese los nombres">
                                                 </div>
                                             </div>
                                             <!-- radio -->
                                             <div class="row">
-                                                <div class="col-sm-4">
-                                                    <div class="form-group">
-                                                        <label>Fecha de nacimiento:</label>
-                                                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                                            <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate"/>
-                                                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                                            </div>
+                                                <div class="form-group col-sm-4">
+                                                    <label>Fecha de nacimiento:</label>
+                                                    <div class="input-group mb-3">
+                                                        <input type="text" name="fechaNacimiento" id="fechaNacimiento"
+                                                               class="form-control datetimepicker-input datepicker" data-toggle="datetimepicker"
+                                                               data-target="#fechaNacimiento" placeholder="dd/mm/aaaa"  >
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                    <label for="servicio" class="col-sm-4 col-form-label">Lugar de Nacimiento:*
+                                                    </label>
+                                                    <div class="input-group mb-3">
+                                                        <div class="flex-fill">
+                                                            <select name="lugarNacimiento" id="lugarNacimiento"
+                                                                            class="form-control select2" required>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-4">
+                                                <div class="form-group col-sm-4">
                                                     <div class="form-group">
-                                                        <label>Lugar de nacimiento</label>
-                                                        <select id="departments" class="form-control select2" style="width: 100%;">
-                                                            <option value="AH">Ahuachapán</option>
-                                                            <option value="CA">Cabañas</option>
-                                                            <option value="CH">Chalatenango</option>
-                                                            <option value="CU">Cuscatlán</option>
-                                                            <option value="LI">La Libertad</option>
-                                                            <option value="PA">La Paz</option>
-                                                            <option value="UN">La Unión</option>
-                                                            <option value="MO">Morazán</option>
-                                                            <option value="SM">San Miguel</option>
-                                                            <option value="SS">San Salvador</option>
-                                                            <option value="SV">San Vicente</option>
-                                                            <option value="SA">Santa Ana</option>
-                                                            <option value="SO">Sonsonate</option>
-                                                            <option value="US">Usulután</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <div class="form-group">
-                                                        <label>Municipios</label>
-                                                        <select id="municipalities" class="form-control select2" style="width: 100%;">
-                                                            <optgroup label="Ahuachapán">
-                                                                <option value="Ahuachapán">Ahuachapán</option>
-                                                                <option value="Apaneca">Apaneca</option>
-                                                                <option value="Atiquizaya">Atiquizaya</option>
-                                                                <!-- Add more municipalities of Ahuachapán here -->
-                                                            </optgroup>
-                                                            <optgroup label="Santa Ana">
-                                                                <option value="Santa Ana">Santa Ana</option>
-                                                                <option value="Metapán">Metapán</option>
-                                                                <option value="Chalchuapa">Chalchuapa</option>
-                                                                <!-- Add more municipalities of Santa Ana here -->
-                                                            </optgroup>
-                                                            <!-- Add more optgroups and options for other departments and municipalities -->
-                                                        </select>
+                                                        <label for="servicio" class="col-sm-4 col-form-label">Lugar de Nacimiento:*
+                                                        </label>
+                                                        <div class="input-group mb-3">
+                                                            <div class="flex-fill">
+                                                                <select name="lugarNacimiento2" id="lugarNacimiento2"
+                                                                        class="form-control select2" required>
+                                                                </select>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
 
@@ -349,15 +329,19 @@
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="form-group">
-                                                    <label>Servicio que solicita</label>
-                                                    <select class="form-control select3" style="width: 100%;">
-                                                        <option>Terapia individual</option>
-                                                        <option>Consejería</option>
-                                                        <option>Terapia de pareja</option>
-                                                        <option>Evaluación psicológica</option>
-                                                        <option>Terapia de familia</option>
-                                                        <option>Terapia de Grupo</option>
-                                                    </select>
+                                                    <label for="servicio" class="col-sm-4 col-form-label">Servicio que solicita:*
+                                                    </label>
+                                                    <div class="col-sm-12">
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                            </div>
+                                                            <div class="flex-fill">
+                                                                <select name="servicio" id="servicio"
+                                                                        class="form-control select2" required>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
