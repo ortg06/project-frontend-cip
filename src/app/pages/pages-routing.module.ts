@@ -4,6 +4,7 @@ import { HomeComponent } from "./home/home.component";
 import { PagesComponent } from "./pages.component";
 import {FichaAdultoComponent} from "./formularios/ficha-adulto/ficha-adulto.component";
 import {PreEntrevistaComponent} from "./formularios/pre-entrevista/pre-entrevista.component";
+import {PersonasComponent} from "./datatable/personas/personas.component";
 
 
 const routes: Routes = [
@@ -23,6 +24,11 @@ const routes: Routes = [
         {
           path: 'formularios/preEntrevista',
           component: PreEntrevistaComponent,
+          pathMatch: 'full'
+        },
+        {
+          path: 'tabla/personasRegistradas',
+          component: PersonasComponent,
           pathMatch: 'full'
         }
       ]

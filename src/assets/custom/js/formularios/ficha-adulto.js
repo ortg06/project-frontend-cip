@@ -1,5 +1,5 @@
 const TABLE_ID = '#paisesDT';
-const FORM_ID = '#formConsultarExportador';
+const FORM_ID = '#formFichaAdulto';
 const FORM_ID_MOD = '#formInscribirExportador';
 const  CAN_EDIT = true;
 const  CAN_CONSULT = true;
@@ -123,126 +123,173 @@ const select2Grouped = function (selector, url, rows) {
     });
 };
 
+
+function toggleField(radio,idRadio,label){
+    $('input[name="'+radio+'"]').on('change', function() {
+        if ($(idRadio).is(':checked')) {
+            $(label).prop("disabled", false); // Habilitar el campo si se selecciona "Sí"
+        } else {
+            $(label).prop("disabled", true);  // Deshabilitar el campo si se selecciona "No"
+        }
+    });
+}
+
 jQuery(function ($) {
 
+    // campos de texto está deshabilitado por defecto
+    $("#cantidadHijo").prop("disabled", true);
+    $("#lugarEstudio").prop("disabled", true);
+    $("#lugarTrabajo").prop("disabled", true);
+    $("#enfermedadEspecifica").prop("disabled", true);
+    $("#diagnosticoFamiliar").prop("disabled", true);
+    $("#diagnosticoPropio").prop("disabled", true);
+    $("#consultaAnterior").prop("disabled", true);
+    $("#anioConsultaAnterior").prop("disabled", true);
 
-    //DATATABLE DE EXPORTADORES EN PANTALLA VERIFICAR
-    $(TABLE_ID).DataTable({
-        ajax: {
-            url: BACKEND_URL + '/api/paises/dt',
-            dataSrc: ''  // DataTables espera un array de objetos directamente
-        },
-        columns: [
-            {
-                data: 'codigoPais',
-                width: "10%",
-            },
-            {
-                data: 'nombrePais'
-            },
-            {
-                data: 'nombrePaisAbr'
-            },
-            {
-                data: 'codigoPais',
-                searchable: false,
-                orderable: false,
-                render: renderActions // Asegúrate de definir esta función
-            }
-        ],
-        order: [
-            [0, 'asc']
-        ]
+     toggleField('radio1','#hijosSi','#cantidadHijo');
+     toggleField('radio2','#estudiaSi', '#lugarEstudio');
+     toggleField('radio3','#trabajaSi', '#lugarTrabajo');
+     toggleField('radio4','#enfermedadSi', '#enfermedadEspecifica');
+     toggleField('radio5','#antecedentesSi', '#diagnosticoFamiliar');
+     toggleField('radio6', '#tratamientoSi','#diagnosticoPropio');
+     toggleField('radio7', '#consultasSi','#consultaAnterior');
+     toggleField('radio7', '#consultasSi','#anioConsultaAnterior');
+
+
+
+    //guardado de ficha adulto
+    $(FORM_ID).validate({
+        submitHandler: function (form) {
+                let url = BACKEND_URL + $(form).attr('action');
+                let data = convertTextUpperCase(form);
+                showConfirmMessage('¿Desea guardar la información de la ficha?', function () {
+                    ajaxPostCall(url, data, null, function (result) {
+                        resetFormData($(FORM_ID), 'select');
+                    });
+                });
+        }
     });
 
-    //servicio
-    select2single('#servicio', BACKEND_URL + '/api/servicio/s2', 10);
 
-    select2WithChildrens('#lugarNacimiento',BACKEND_URL + '/api/util/s2DeptoWithMunicipio',10);
+     //DATATABLE DE EXPORTADORES EN PANTALLA VERIFICAR
+     $(TABLE_ID).DataTable({
+         ajax: {
+             url: BACKEND_URL + '/api/paises/dt',
+             dataSrc: ''  // DataTables espera un array de objetos directamente
+         },
+         columns: [
+             {
+                 data: 'codigoPais',
+                 width: "10%",
+             },
+             {
+                 data: 'nombrePais'
+             },
+             {
+                 data: 'nombrePaisAbr'
+             },
+             {
+                 data: 'codigoPais',
+                 searchable: false,
+                 orderable: false,
+                 render: renderActions // Asegúrate de definir esta función
+             }
+         ],
+         order: [
+             [0, 'asc']
+         ]
+     });
+
+     //servicio
+     select2single('#servicio', BACKEND_URL + '/api/servicio/s2', 10);
+
+     select2single('#gradoAcademico', BACKEND_URL + '/api/gradoAcademico/s2', 10);
+
+     select2WithChildrens('#lugarNacimiento',BACKEND_URL + '/api/util/s2DeptoWithMunicipio',10);
 
 
-    /*
-        $('#tiposDocumentoIdentidadExpor').select2({placeholder: "Seleccione un documento"});
-        select2single('#tiposDocumentoIdentidadExpor', BACKEND_URL + '/tipos-documentos-identidad/s2-nombre-documento', 10)
+     /*
+         $('#tiposDocumentoIdentidadExpor').select2({placeholder: "Seleccione un documento"});
+         select2single('#tiposDocumentoIdentidadExpor', BACKEND_URL + '/tipos-documentos-identidad/s2-nombre-documento', 10)
 
-        select2single('#tiposDocumentoIdentidadRepresentante', BACKEND_URL + '/tipos-documentos-identidad/s2-nombre-documento', 10)
+         select2single('#tiposDocumentoIdentidadRepresentante', BACKEND_URL + '/tipos-documentos-identidad/s2-nombre-documento', 10)
 
-        //persona/usuario autorizados
-        select2single('#tiposDocumentoIdentidad', BACKEND_URL + '/tipos-documentos-identidad/s2', 10)
-
-
-        //pais emision documento expediente
-        select2single('#pais1', BACKEND_URL + '/pais/s2Vigentes', 10);
-
-        //pais emision documento representante legal
-        select2single('#pais2', BACKEND_URL + '/pais/s2Vigentes', 10);
-
-        //pais documento persona/usuario autorizado
-        select2single('#paisDocumento', BACKEND_URL + '/pais/s2Vigentes', 10);
-
-        //select2single('#codigoPais', BACKEND_URL + '/pais/s2Vigentes', 10);
-
-        select2single('#departamento', BACKEND_URL + '/departamento/s2', 10, 213, null);
-
-        select2single('#municipio', BACKEND_URL + '/municipio/s2', 10, 213, 6);
+         //persona/usuario autorizados
+         select2single('#tiposDocumentoIdentidad', BACKEND_URL + '/tipos-documentos-identidad/s2', 10)
 
 
-        $("#codigoPais").on("change", function() {
-            $("#departamento").val('').trigger('change');
-            select2ChangeSingle('#departamento', BACKEND_URL + '/departamento/s2', 10, $(this).val(), null);
-        });
+         //pais emision documento expediente
+         select2single('#pais1', BACKEND_URL + '/pais/s2Vigentes', 10);
 
-        $("#departamento").on("change", function() {
-            $("#municipio").val('').trigger('change');
-            select2ChangeSingle('#municipio', BACKEND_URL + '/municipio/s2', 10, $("#codigoPais").val(), $(this).val());
-        });
+         //pais emision documento representante legal
+         select2single('#pais2', BACKEND_URL + '/pais/s2Vigentes', 10);
 
-        select2single('#paisExportador', BACKEND_URL + '/pais/s2Vigentes', 10);
+         //pais documento persona/usuario autorizado
+         select2single('#paisDocumento', BACKEND_URL + '/pais/s2Vigentes', 10);
 
-        select2single('#actividadEconomicaPrincipal', BACKEND_URL + '/actividades-economica/s2', 10);
+         //select2single('#codigoPais', BACKEND_URL + '/pais/s2Vigentes', 10);
 
-        select2single('#actividadesEconomica', BACKEND_URL + '/actividades-economica/s2', 10);
+         select2single('#departamento', BACKEND_URL + '/departamento/s2', 10, 213, null);
 
-        select2single('#agentesAduanale', BACKEND_URL + '/exportadores-agentes-adua/s2AgentesVigentes', 10);
+         select2single('#municipio', BACKEND_URL + '/municipio/s2', 10, 213, 6);
 
-        select2single('#codigoParqueServicio', BACKEND_URL + '/exportadores-parque-servicio/s2ParqueServicioVigentes', 10);
 
-        select2single('#paisD', BACKEND_URL + '/pais/s2Vigentes', 10);
+         $("#codigoPais").on("change", function() {
+             $("#departamento").val('').trigger('change');
+             select2ChangeSingle('#departamento', BACKEND_URL + '/departamento/s2', 10, $(this).val(), null);
+         });
 
-        select2single('#departamentoD', BACKEND_URL + '/departamento/s2', 10, 213, null);
+         $("#departamento").on("change", function() {
+             $("#municipio").val('').trigger('change');
+             select2ChangeSingle('#municipio', BACKEND_URL + '/municipio/s2', 10, $("#codigoPais").val(), $(this).val());
+         });
 
-        select2single('#municipioD', BACKEND_URL + '/municipio/s2', 10, 213, $("#departamentoD").val());
+         select2single('#paisExportador', BACKEND_URL + '/pais/s2Vigentes', 10);
 
-        $("#paisD").on("change", function() {
-            $("#departamentoD").val("").trigger('change');
-            select2ChangeSingle('#departamentoD', BACKEND_URL + '/departamento/s2', 10, $(this).val(), null);
-        });
+         select2single('#actividadEconomicaPrincipal', BACKEND_URL + '/actividades-economica/s2', 10);
 
-        $("#departamentoD").on("change", function() {
-            $("#municipioD").val("");
-            select2ChangeSingle('#municipioD', BACKEND_URL + '/municipio/s2', 10, $("#paisD").val(), $(this).val());
-        });
+         select2single('#actividadesEconomica', BACKEND_URL + '/actividades-economica/s2', 10);
 
-        select2single('#paisZ', BACKEND_URL + '/pais/s2Vigentes', 10);
+         select2single('#agentesAduanale', BACKEND_URL + '/exportadores-agentes-adua/s2AgentesVigentes', 10);
 
-        select2ChangeSingle('#departamentoZ', BACKEND_URL + '/departamento/s2', 10, 213, null);
+         select2single('#codigoParqueServicio', BACKEND_URL + '/exportadores-parque-servicio/s2ParqueServicioVigentes', 10);
 
-        select2ChangeSingle('#municipioZ', BACKEND_URL + '/municipio/s2', 10, 213, $("#departamentoZ").val());
+         select2single('#paisD', BACKEND_URL + '/pais/s2Vigentes', 10);
 
-        $("#paisZ").on("change", function() {
-            $("#departamentoZ").val("").trigger('change');
-            select2ChangeSingle('#departamentoZ', BACKEND_URL + '/departamento/s2', 10, $(this).val(), null);
-        });
+         select2single('#departamentoD', BACKEND_URL + '/departamento/s2', 10, 213, null);
 
-        $("#departamentoZ").on("change", function() {
-            $("#municipioZ").val("").trigger('change');
-            select2ChangeSingle('#municipioZ', BACKEND_URL + '/municipio/s2', 10, $("#paisZ").val(), $(this).val());
-        });
+         select2single('#municipioD', BACKEND_URL + '/municipio/s2', 10, 213, $("#departamentoD").val());
 
-        select2single('#zonasFranca', BACKEND_URL + '/exportadores-zonas-franca/s2ZonasFranca', 10);
+         $("#paisD").on("change", function() {
+             $("#departamentoD").val("").trigger('change');
+             select2ChangeSingle('#departamentoD', BACKEND_URL + '/departamento/s2', 10, $(this).val(), null);
+         });
 
-        select2single('#establecimientosAutorizado', BACKEND_URL + '/establecimiento/s2', 10);
+         $("#departamentoD").on("change", function() {
+             $("#municipioD").val("");
+             select2ChangeSingle('#municipioD', BACKEND_URL + '/municipio/s2', 10, $("#paisD").val(), $(this).val());
+         });
 
-        select2single('#tiposInformacion', BACKEND_URL + '/tipos-informacion/s2', 10);
-    */
+         select2single('#paisZ', BACKEND_URL + '/pais/s2Vigentes', 10);
+
+         select2ChangeSingle('#departamentoZ', BACKEND_URL + '/departamento/s2', 10, 213, null);
+
+         select2ChangeSingle('#municipioZ', BACKEND_URL + '/municipio/s2', 10, 213, $("#departamentoZ").val());
+
+         $("#paisZ").on("change", function() {
+             $("#departamentoZ").val("").trigger('change');
+             select2ChangeSingle('#departamentoZ', BACKEND_URL + '/departamento/s2', 10, $(this).val(), null);
+         });
+
+         $("#departamentoZ").on("change", function() {
+             $("#municipioZ").val("").trigger('change');
+             select2ChangeSingle('#municipioZ', BACKEND_URL + '/municipio/s2', 10, $("#paisZ").val(), $(this).val());
+         });
+
+         select2single('#zonasFranca', BACKEND_URL + '/exportadores-zonas-franca/s2ZonasFranca', 10);
+
+         select2single('#establecimientosAutorizado', BACKEND_URL + '/establecimiento/s2', 10);
+
+         select2single('#tiposInformacion', BACKEND_URL + '/tipos-informacion/s2', 10);
+     */
 });

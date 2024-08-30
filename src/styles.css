@@ -49,4 +49,8 @@ th {
   object-fit: cover; /* Asegura que la imagen se ajuste al contenedor sin distorsionarse */
 }
 
+.label{
+  color: #634834;
+}
+
 

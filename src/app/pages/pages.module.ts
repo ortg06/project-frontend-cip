@@ -12,6 +12,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { PreEntrevistaComponent } from './formularios/pre-entrevista/pre-entrevista.component';
 import { FichaAdultoComponent } from './formularios/ficha-adulto/ficha-adulto.component';
+import { PersonasComponent } from './datatable/personas/personas.component';
 
 @NgModule({
     declarations: [
@@ -23,7 +24,8 @@ import { FichaAdultoComponent } from './formularios/ficha-adulto/ficha-adulto.co
         MainFooterComponent,
         PreloaderComponent,
         PreEntrevistaComponent,
-        FichaAdultoComponent
+        FichaAdultoComponent,
+        PersonasComponent
     ],
     imports: [
         BrowserModule,
