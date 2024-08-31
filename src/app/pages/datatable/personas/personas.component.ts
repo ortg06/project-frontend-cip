@@ -1,4 +1,4 @@
-import {Component, Renderer2} from '@angular/core';
+import {AfterViewInit, Component, OnInit, Renderer2} from '@angular/core';
 import {ScriptService} from "../../../services/scripts.service";
 
 @Component({
@@ -6,7 +6,7 @@ import {ScriptService} from "../../../services/scripts.service";
   templateUrl: './personas.component.html',
   styleUrls: ['./personas.component.css']
 })
-export class PersonasComponent {
+export class PersonasComponent implements OnInit{
 
   constructor(private renderer: Renderer2,
               private scriptService: ScriptService) {
@@ -14,6 +14,10 @@ export class PersonasComponent {
   }
   ngOnInit(): void {
     this.scriptService.loadJsScript(this.renderer, '/assets/custom/js/datatable/personas.js');
+  }
+
+  ngOnDestroy(){
+    window.location.reload();
   }
 
 }

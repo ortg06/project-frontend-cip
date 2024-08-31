@@ -124,17 +124,23 @@ const select2Grouped = function (selector, url, rows) {
 };
 
 
-function toggleField(radio,idRadio,label){
+function toggleField(radio,idRadio,label,label2){
     $('input[name="'+radio+'"]').on('change', function() {
         if ($(idRadio).is(':checked')) {
             $(label).prop("disabled", false); // Habilitar el campo si se selecciona "Sí"
+            $(label2).val('S');
         } else {
             $(label).prop("disabled", true);  // Deshabilitar el campo si se selecciona "No"
+            $(label2).val('N');
         }
     });
 }
 
 jQuery(function ($) {
+
+    $("#saveButton").hide();
+    $("#nextButton").show();
+    $("#saveButton").attr("disabled", true);
 
     // campos de texto está deshabilitado por defecto
     $("#cantidadHijo").prop("disabled", true);
@@ -146,14 +152,14 @@ jQuery(function ($) {
     $("#consultaAnterior").prop("disabled", true);
     $("#anioConsultaAnterior").prop("disabled", true);
 
-     toggleField('radio1','#hijosSi','#cantidadHijo');
-     toggleField('radio2','#estudiaSi', '#lugarEstudio');
-     toggleField('radio3','#trabajaSi', '#lugarTrabajo');
-     toggleField('radio4','#enfermedadSi', '#enfermedadEspecifica');
-     toggleField('radio5','#antecedentesSi', '#diagnosticoFamiliar');
-     toggleField('radio6', '#tratamientoSi','#diagnosticoPropio');
-     toggleField('radio7', '#consultasSi','#consultaAnterior');
-     toggleField('radio7', '#consultasSi','#anioConsultaAnterior');
+     toggleField('radio1','#hijosSi','#cantidadHijo','#tieneHijo');
+     toggleField('radio2','#estudiaSi', '#lugarEstudio','#estudia');
+     toggleField('radio3','#trabajaSi', '#lugarTrabajo','#trabaja');
+     toggleField('radio4','#enfermedadSi', '#enfermedadEspecifica','#padeceEnfermedad');
+     toggleField('radio5','#antecedentesSi', '#diagnosticoFamiliar','#existeAntecedentePsi');
+     toggleField('radio6', '#tratamientoSi','#diagnosticoPropio','#tratamientoPsicoActual');
+     toggleField('radio7', '#consultasSi','#consultaAnterior','#asistioConsultaPsi');
+     toggleField('radio7', '#consultasSi','#anioConsultaAnterior','#asistioConsultaPsi');
 
 
 
@@ -164,7 +170,7 @@ jQuery(function ($) {
                 let data = convertTextUpperCase(form);
                 showConfirmMessage('¿Desea guardar la información de la ficha?', function () {
                     ajaxPostCall(url, data, null, function (result) {
-                        resetFormData($(FORM_ID), 'select');
+                        resetFormData($(FORM_ID));
                     });
                 });
         }
@@ -203,93 +209,29 @@ jQuery(function ($) {
      //servicio
      select2single('#servicio', BACKEND_URL + '/api/servicio/s2', 10);
 
+     //GRADO ACADEMICO
      select2single('#gradoAcademico', BACKEND_URL + '/api/gradoAcademico/s2', 10);
 
+     //LUGAR DE NACIMIENTO
      select2WithChildrens('#lugarNacimiento',BACKEND_URL + '/api/util/s2DeptoWithMunicipio',10);
 
+     //checkboxes
+    $("#nextButton").on('click',function(){
+        $("#saveButton").show();
+        $("#nextButton").hide();
+    });
 
-     /*
-         $('#tiposDocumentoIdentidadExpor').select2({placeholder: "Seleccione un documento"});
-         select2single('#tiposDocumentoIdentidadExpor', BACKEND_URL + '/tipos-documentos-identidad/s2-nombre-documento', 10)
+    $("#previousButton").on('click',function(){
+        $("#saveButton").hide();
+        $("#nextButton").show();
+    });
 
-         select2single('#tiposDocumentoIdentidadRepresentante', BACKEND_URL + '/tipos-documentos-identidad/s2-nombre-documento', 10)
+    $("#checkterms").on('change',function(){
+        if ($(this).is(':checked')) {
+            $("#saveButton").removeAttr("disabled");
+        }else{
+            $("#saveButton").attr("disabled", true);
+        }
+    });
 
-         //persona/usuario autorizados
-         select2single('#tiposDocumentoIdentidad', BACKEND_URL + '/tipos-documentos-identidad/s2', 10)
-
-
-         //pais emision documento expediente
-         select2single('#pais1', BACKEND_URL + '/pais/s2Vigentes', 10);
-
-         //pais emision documento representante legal
-         select2single('#pais2', BACKEND_URL + '/pais/s2Vigentes', 10);
-
-         //pais documento persona/usuario autorizado
-         select2single('#paisDocumento', BACKEND_URL + '/pais/s2Vigentes', 10);
-
-         //select2single('#codigoPais', BACKEND_URL + '/pais/s2Vigentes', 10);
-
-         select2single('#departamento', BACKEND_URL + '/departamento/s2', 10, 213, null);
-
-         select2single('#municipio', BACKEND_URL + '/municipio/s2', 10, 213, 6);
-
-
-         $("#codigoPais").on("change", function() {
-             $("#departamento").val('').trigger('change');
-             select2ChangeSingle('#departamento', BACKEND_URL + '/departamento/s2', 10, $(this).val(), null);
-         });
-
-         $("#departamento").on("change", function() {
-             $("#municipio").val('').trigger('change');
-             select2ChangeSingle('#municipio', BACKEND_URL + '/municipio/s2', 10, $("#codigoPais").val(), $(this).val());
-         });
-
-         select2single('#paisExportador', BACKEND_URL + '/pais/s2Vigentes', 10);
-
-         select2single('#actividadEconomicaPrincipal', BACKEND_URL + '/actividades-economica/s2', 10);
-
-         select2single('#actividadesEconomica', BACKEND_URL + '/actividades-economica/s2', 10);
-
-         select2single('#agentesAduanale', BACKEND_URL + '/exportadores-agentes-adua/s2AgentesVigentes', 10);
-
-         select2single('#codigoParqueServicio', BACKEND_URL + '/exportadores-parque-servicio/s2ParqueServicioVigentes', 10);
-
-         select2single('#paisD', BACKEND_URL + '/pais/s2Vigentes', 10);
-
-         select2single('#departamentoD', BACKEND_URL + '/departamento/s2', 10, 213, null);
-
-         select2single('#municipioD', BACKEND_URL + '/municipio/s2', 10, 213, $("#departamentoD").val());
-
-         $("#paisD").on("change", function() {
-             $("#departamentoD").val("").trigger('change');
-             select2ChangeSingle('#departamentoD', BACKEND_URL + '/departamento/s2', 10, $(this).val(), null);
-         });
-
-         $("#departamentoD").on("change", function() {
-             $("#municipioD").val("");
-             select2ChangeSingle('#municipioD', BACKEND_URL + '/municipio/s2', 10, $("#paisD").val(), $(this).val());
-         });
-
-         select2single('#paisZ', BACKEND_URL + '/pais/s2Vigentes', 10);
-
-         select2ChangeSingle('#departamentoZ', BACKEND_URL + '/departamento/s2', 10, 213, null);
-
-         select2ChangeSingle('#municipioZ', BACKEND_URL + '/municipio/s2', 10, 213, $("#departamentoZ").val());
-
-         $("#paisZ").on("change", function() {
-             $("#departamentoZ").val("").trigger('change');
-             select2ChangeSingle('#departamentoZ', BACKEND_URL + '/departamento/s2', 10, $(this).val(), null);
-         });
-
-         $("#departamentoZ").on("change", function() {
-             $("#municipioZ").val("").trigger('change');
-             select2ChangeSingle('#municipioZ', BACKEND_URL + '/municipio/s2', 10, $("#paisZ").val(), $(this).val());
-         });
-
-         select2single('#zonasFranca', BACKEND_URL + '/exportadores-zonas-franca/s2ZonasFranca', 10);
-
-         select2single('#establecimientosAutorizado', BACKEND_URL + '/establecimiento/s2', 10);
-
-         select2single('#tiposInformacion', BACKEND_URL + '/tipos-informacion/s2', 10);
-     */
 });

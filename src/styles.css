@@ -54,3 +54,25 @@ th {
 }
 
 
+/* styles.css */
+.btn-custom {
+  background-color: #008F87; /* Cambia este color al que desees */
+  color: white; /* Color del texto */
+  border: 1px solid #008F87; /* Borde del botón */
+  border-radius: 0.25rem; /* Bordes redondeados, opcional */
+  padding: 0.375rem 0.75rem; /* Espaciado interno, opcional */
+  font-size: 1rem; /* Tamaño de fuente, opcional */
+  font-weight: 400; /* Peso de fuente, opcional */
+}
+
+.btn-custom:hover {
+  background-color: #02fde8; /* Color de fondo al pasar el ratón por encima */
+  border-color: #02fde8; /* Borde al pasar el ratón por encima */
+  color: #032d23; /* Asegúrate de que el texto sea legible */
+}
+
+.btn-custom:focus, .btn-custom:active {
+  box-shadow: none; /* Elimina el sombreado del foco y activación */
+}
+
+

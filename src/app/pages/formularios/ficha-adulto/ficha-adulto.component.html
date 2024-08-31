@@ -23,12 +23,19 @@
             <div class="row">
                 <div class="col-md-12">
                     <form action="/api/fichaAdulto/save" method="post" id="formFichaAdulto">
+                        <input type="hidden" name="tieneHijo" id="tieneHijo" class="form-control">
+                        <input type="hidden" name="estudia" id="estudia" class="form-control">
+                        <input type="hidden" name="trabaja" id="trabaja" class="form-control">
+                        <input type="hidden" name="padeceEnfermedad" id="padeceEnfermedad" class="form-control">
+                        <input type="hidden" name="existeAntecedentePsi" id="existeAntecedentePsi" class="form-control">
+                        <input type="hidden" name="tratamientoPsicoActual" id="tratamientoPsicoActual" class="form-control">
+                        <input type="hidden" name="asistioConsultaPsi" id="asistioConsultaPsi" class="form-control">
                         <div class="card card-primary">
                             <div class="card-header">
                                 <h3 class="card-title">Formulario Ficha Adulto</h3>
                             </div>
                             <div class="card-body ">
-                                <div #stepper class="bs-stepper">
+                                <div #stepper id="stepper" class="bs-stepper">
                                     <div class="bs-stepper-header" role="tablist">
                                         <div class="step" data-target="#datos-general">
                                             <button type="button" class="step-trigger" role="tab" aria-controls="datos-general" id="datos-general-trigger">
@@ -260,6 +267,7 @@
                                             </div>
                                         </div>
                                         <div id="information-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
+                                            <div class="card-body">
                                             <div class="row">
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
@@ -434,15 +442,18 @@
                                                     &nbsp;
                                                 </div>
                                             </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="button-container">
                                     <div class="button-row">
-                                        <button #nextButton id="nextButton" class="btn btn-primary" style="margin-right: 10px">Siguiente</button>
-                                        <button #previousButton id="previousButton" class="btn btn-primary">Atrás</button>
+                                        <button #nextButton id="nextButton" class="btn btn-custom" style="margin-right: 10px; margin-left: 30px">Siguiente</button>
 
-                                        <button type="submit" class="btn btn-primary">Guardar</button>
+                                        <button id="saveButton" type="submit" class="btn btn-success" style="margin-right: 10px; margin-left: 30px">Guardar</button>
+                                        <button #previousButton id="previousButton" class="btn btn-custom" style="margin-right: 10px">Atrás</button>
+
+
                                     </div>
                                 </div>
                             </div>
