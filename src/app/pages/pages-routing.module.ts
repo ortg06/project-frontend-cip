@@ -5,6 +5,7 @@ import { PagesComponent } from "./pages.component";
 import {FichaAdultoComponent} from "./formularios/ficha-adulto/ficha-adulto.component";
 import {PreEntrevistaComponent} from "./formularios/pre-entrevista/pre-entrevista.component";
 import {PersonasComponent} from "./datatable/personas/personas.component";
+import {PacientesComponent} from "./datatable/pacientes/pacientes.component";
 
 
 const routes: Routes = [
@@ -27,8 +28,13 @@ const routes: Routes = [
           pathMatch: 'full'
         },
         {
-          path: 'tabla/personasRegistradas',
+          path: 'tabla/personasInscritas',
           component: PersonasComponent,
+          pathMatch: 'full'
+        },
+        {
+          path: 'tabla/pacientes',
+          component: PacientesComponent,
           pathMatch: 'full'
         }
       ]

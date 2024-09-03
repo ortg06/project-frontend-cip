@@ -76,3 +76,12 @@ th {
 }
 
 
+.banner {
+  width: 100%; /* Asegura que el banner ocupe el 100% del ancho del contenedor */
+  overflow: hidden; /* Opcional: asegúrate de que el contenido no se desborde */
+}
+
+.banner img {
+  width: 300%; /* Hace que la imagen se ajuste al ancho del contenedor */
+  height: 40%; /* Mantiene la proporción de la imagen */
+}

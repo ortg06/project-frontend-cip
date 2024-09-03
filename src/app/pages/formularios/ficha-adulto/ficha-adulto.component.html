@@ -58,7 +58,7 @@
                                                 <div class="row">
                                                     <div class="form-group col-sm-12">
                                                         <label style="color: #634834;">Nombre Completo:</label>
-                                                        <input id="nombres" name="nombres" type="text" class="form-control" placeholder="Ingrese Nombre Completo">
+                                                        <input id="nombres" name="nombres" type="text" class="form-control" placeholder="Ingrese Nombre Completo" maxlength="100">
                                                     </div>
                                                 </div>
                                                 <!-- radio -->
@@ -85,7 +85,7 @@
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
                                                             <label for="nacionalidad">Nacionalidad:</label>
-                                                            <input type="text" name="nacionalidad" id="nacionalidad" class="form-control" placeholder="Ingrese la Nacionalidad">
+                                                            <input type="text" name="nacionalidad" id="nacionalidad" class="form-control" placeholder="Ingrese la Nacionalidad" maxlength="50">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -94,14 +94,14 @@
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
                                                             <label for="genero">G&eacute;nero:</label>
-                                                            <input type="text" name="genero" id="genero"  class="form-control" placeholder="Ingrese su Género">
+                                                            <input type="text" name="genero" id="genero"  class="form-control" placeholder="Ingrese su Género" maxlength="100">
                                                         </div>
                                                     </div>
 
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
                                                             <label for="dui">No. de documento de identidad(DUI/Pasaporte):</label>
-                                                            <input type="text" name="dui" id="dui" class="form-control" placeholder="Ingrese No. de documento de identidad(DUI/Pasaporte)">
+                                                            <input type="text" name="dui" id="dui" class="form-control" placeholder="Ingrese No. de documento de identidad(DUI/Pasaporte)" maxlength="20">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -109,19 +109,19 @@
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
                                                             <label for="celular">No. teléfono celular:</label>
-                                                            <input type="text" name="celular" id="celular" class="form-control" placeholder="Ingrese No. teléfono celular">
+                                                            <input type="text" name="celular" id="celular" class="form-control" placeholder="Ingrese No. teléfono celular" maxlength="12">
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
                                                             <label for="telefono1">No. Teléfono casa:</label>
-                                                            <input type="text" name="telefono1" id="telefono1" class="form-control" placeholder="Ingrese No. Teléfono casa">
+                                                            <input type="text" name="telefono1" id="telefono1" class="form-control" placeholder="Ingrese No. Teléfono casa" maxlength="12">
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
                                                             <label for="telefono2">No. teléfono adicional:</label>
-                                                            <input type="text" name="telefono2" id="telefono2" class="form-control" placeholder="Ingrese No. teléfono adicional">
+                                                            <input type="text" name="telefono2" id="telefono2" class="form-control" placeholder="Ingrese No. teléfono adicional" maxlength="12">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -129,13 +129,13 @@
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
                                                             <label for="lugarResidencia">Dirección Actual Completa de Residencia:</label>
-                                                            <input type="text"  name="lugarResidencia" id="lugarResidencia" class="form-control" placeholder="Ingrese Dirección Actual Completa de Residencia">
+                                                            <input type="text"  name="lugarResidencia" id="lugarResidencia" class="form-control" placeholder="Ingrese Dirección Actual Completa de Residencia" maxlength="255">
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
                                                             <label>Correo Electrónico:</label>
-                                                            <input type="text"  name="correo" id="correo" class="form-control" placeholder="Ingrese Correo Electrónico">
+                                                            <input type="text"  name="correo" id="correo" class="form-control" placeholder="Ingrese Correo Electrónico" maxlength="75">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -160,7 +160,7 @@
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
                                                             <label for="cantidadHijo">Cuantos Hijos Tiene:</label>
-                                                            <input type="text" name="cantidadHijo" id="cantidadHijo" class="form-control" placeholder="Ingrese Cuantos Hijos Tiene">
+                                                            <input type="number" name="cantidadHijo" id="cantidadHijo" class="form-control" placeholder="Ingrese Cuantos Hijos Tiene" min="0" max="20">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -186,7 +186,7 @@
                                                     <div class="col-sm-8">
                                                         <div class="form-group">
                                                             <label for="lugarEstudio">Lugar de Estudio:</label>
-                                                            <input type="text" name="lugarEstudio"  id="lugarEstudio" class="form-control" placeholder="Ingrese Lugar de Estudio">
+                                                            <input type="text" name="lugarEstudio"  id="lugarEstudio" class="form-control" placeholder="Ingrese Lugar de Estudio" maxlength="150">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -203,7 +203,7 @@
                                                     <div class="col-sm-8">
                                                         <div class="form-group">
                                                             <label for="especialidadEstudio">Especialidad de Estudio:</label>
-                                                            <input type="text" name="especialidadEstudio" id="especialidadEstudio" class="form-control" placeholder="Ingrese Especialidad de Estudio">
+                                                            <input type="text" name="especialidadEstudio" id="especialidadEstudio" class="form-control" placeholder="Ingrese Especialidad de Estudio" maxlength="100">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -228,13 +228,13 @@
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
                                                             <label for="lugarTrabajo">Lugar de Trabajo:</label>
-                                                            <input type="text"  name="lugarTrabajo" id="lugarTrabajo" class="form-control" placeholder="Ingrese Lugar de Trabajo">
+                                                            <input type="text"  name="lugarTrabajo" id="lugarTrabajo" class="form-control" placeholder="Ingrese Lugar de Trabajo" maxlength="150">
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
                                                             <label for="cargoDesempeña">Cargo que Desempeña:</label>
-                                                            <input type="text" name="cargoDesempeña" id="cargoDesempeña" class="form-control" placeholder="Ingrese Cargo que Desempeña">
+                                                            <input type="text" name="cargoDesempeña" id="cargoDesempeña" class="form-control" placeholder="Ingrese Cargo que Desempeña" maxlength="100">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -260,7 +260,7 @@
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
                                                             <label for="enfermedadEspecifica">Especificar que Enfermedad Física Padece:</label>
-                                                            <input type="text" name="enfermedadEspecifica" id="enfermedadEspecifica" class="form-control" placeholder="Ingrese Enfermedad Física Padece">
+                                                            <input type="text" name="enfermedadEspecifica" id="enfermedadEspecifica" class="form-control" placeholder="Ingrese Enfermedad Física Padece" maxlength="150">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -289,7 +289,7 @@
                                                 <div class="col-sm-8">
                                                     <div class="form-group">
                                                         <label for="diagnosticoFamiliar">¿Que Diagnostico Tiene su Familiar?</label>
-                                                        <input type="text" name="diagnosticoFamiliar" id="diagnosticoFamiliar" class="form-control" placeholder="Ingrese el Diagnostico que tiene su Familiar">
+                                                        <input type="text" name="diagnosticoFamiliar" id="diagnosticoFamiliar" class="form-control" placeholder="Ingrese el Diagnostico que tiene su Familiar" maxlength="250">
                                                     </div>
                                                 </div>
                                             </div>
@@ -316,13 +316,13 @@
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label for="diagnosticoPropio">¿Cual es el Diagnostico Brindado por su Médico?</label>
-                                                        <textarea name="diagnosticoPropio" id="diagnosticoPropio" class="form-control" placeholder="Ingrese el Diagnostico Brindado por su Médico"></textarea>
+                                                        <textarea name="diagnosticoPropio" id="diagnosticoPropio" class="form-control" placeholder="Ingrese el Diagnostico Brindado por su Médico" maxlength="250"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label for="medicamentos">¿Cual es/son los Medicamentos Recetados?</label>
-                                                        <input type="text" name="medicamentos"  id="medicamentos" class="form-control" placeholder="Ingrese los Medicamentos Recetados">
+                                                        <input type="text" name="medicamentos"  id="medicamentos" class="form-control" placeholder="Ingrese los Medicamentos Recetados" maxlength="150">
                                                     </div>
                                                 </div>
                                             </div>
@@ -330,7 +330,7 @@
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label for="tiempoTratamiento">¿Cuál ha sido el Tiempo Estipulado para el Tratamiento?</label>
-                                                        <input type="text" name="tiempoTratamiento" id="tiempoTratamiento" class="form-control" placeholder="Ingrese el Tiempo Estipulado para el Tratamiento">
+                                                        <input type="text" name="tiempoTratamiento" id="tiempoTratamiento" class="form-control" placeholder="Ingrese el Tiempo Estipulado para el Tratamiento" maxlength="50">
                                                     </div>
                                                 </div>
                                             </div>
@@ -347,9 +347,9 @@
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label>Modalidad del servicio que solicita</label>
-                                                        <select class="form-control select3" style="width: 100%;">
-                                                            <option>Presencial</option>
-                                                            <option>Virtual</option>
+                                                        <select name="modalidadServicio" id="modalidadServicio" class="form-control select3" style="width: 100%;">
+                                                            <option value="P">Presencial</option>
+                                                            <option value="V">Virtual</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -358,7 +358,7 @@
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <label for="motivoConsulta">¿Cuál es el motivo de su consulta?</label>
-                                                        <textarea name="motivoConsulta" id="motivoConsulta" class="form-control" placeholder="Ingrese el motivo de su consulta"></textarea>
+                                                        <textarea name="motivoConsulta" id="motivoConsulta" class="form-control" placeholder="Ingrese el motivo de su consulta" maxlength="250"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-sm-6">
@@ -399,7 +399,7 @@
                                                 <div class="col-sm-8">
                                                     <div class="form-group">
                                                         <label>¿Que consultó en este momento?</label>
-                                                        <textarea name="consultaAnterior" id="consultaAnterior" class="form-control" placeholder="Ingrese el motivo"></textarea>
+                                                        <textarea name="consultaAnterior" id="consultaAnterior" class="form-control" placeholder="Ingrese el motivo" maxlength="200"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -407,7 +407,7 @@
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
                                                         <label for="nombreEmergencia">En caso de emergencia, ¿A quién podemos llamar? (Favor coloque el nombre completo de la persona). </label>
-                                                        <input type="text" name="nombreEmergencia" id="nombreEmergencia" class="form-control" placeholder="Ingrese el nombre completo de la persona">
+                                                        <input type="text" name="nombreEmergencia" id="nombreEmergencia" class="form-control" placeholder="Ingrese el nombre completo de la persona" maxlength="100">
                                                     </div>
                                                 </div>
                                             </div>
@@ -415,13 +415,13 @@
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label for="parentescoEmergencia">Parentesco</label>
-                                                        <input type="text" name="parentescoEmergencia" id="parentescoEmergencia" class="form-control" placeholder="Ingrese el parentesco">
+                                                        <input type="text" name="parentescoEmergencia" id="parentescoEmergencia" class="form-control" placeholder="Ingrese el parentesco" maxlength="100">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label for="telefonoEmergencia">N° de teléfono</label>
-                                                        <input type="text" name="telefonoEmergencia" id="telefonoEmergencia" class="form-control" placeholder="Ingrese el n° de teléfono">
+                                                        <input type="text" name="telefonoEmergencia" id="telefonoEmergencia" class="form-control" placeholder="Ingrese el n° de teléfono" maxlength="12">
                                                     </div>
                                                 </div>
                                             </div>
@@ -429,7 +429,7 @@
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
                                                         <label for="comentariosAdicional">Comentarios adicionales</label>
-                                                        <textarea class="form-control" name="comentariosAdicional" id="comentariosAdicional" rows="3" placeholder="Ingrese comentario adicional"></textarea>
+                                                        <textarea class="form-control" name="comentariosAdicional" id="comentariosAdicional" rows="3" placeholder="Ingrese comentario adicional" maxlength="200"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -448,11 +448,10 @@
                                 </div>
                                 <div class="button-container">
                                     <div class="button-row">
-                                        <button #nextButton id="nextButton" class="btn btn-custom" style="margin-right: 10px; margin-left: 30px">Siguiente</button>
+                                        <button #nextButton id="nextButton" type="button" class="btn btn-custom" style="margin-right: 10px; margin-left: 30px">Siguiente</button>
 
                                         <button id="saveButton" type="submit" class="btn btn-success" style="margin-right: 10px; margin-left: 30px">Guardar</button>
-                                        <button #previousButton id="previousButton" class="btn btn-custom" style="margin-right: 10px">Atrás</button>
-
+                                        <button #previousButton id="previousButton" type="button" class="btn btn-custom" style="margin-right: 10px">Atrás</button>
 
                                     </div>
                                 </div>

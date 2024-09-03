@@ -13,6 +13,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { PreEntrevistaComponent } from './formularios/pre-entrevista/pre-entrevista.component';
 import { FichaAdultoComponent } from './formularios/ficha-adulto/ficha-adulto.component';
 import { PersonasComponent } from './datatable/personas/personas.component';
+import { PacientesComponent } from './datatable/pacientes/pacientes.component';
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import { PersonasComponent } from './datatable/personas/personas.component';
         PreloaderComponent,
         PreEntrevistaComponent,
         FichaAdultoComponent,
-        PersonasComponent
+        PersonasComponent,
+        PacientesComponent
     ],
     imports: [
         BrowserModule,

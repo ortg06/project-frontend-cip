@@ -3,25 +3,26 @@ const FORM_ID = '#formFichaAdulto';
 const FORM_ID_MOD = '#formInscribirExportador';
 const  CAN_EDIT = true;
 const  CAN_CONSULT = true;
-const  CAN_VERIFICAR = true;
+const  CAN_ACTIVAR = true;
 
 function renderActions(data, type, row, meta) {
     let html = '';
-    html += CAN_VERIFICAR ? ' <a data-rel="tooltip" data-placement="left" onclick="verificar(' + meta.row + ')" title="Verificar" href="javascript:void(0)" class="m-2"><i class="fa fa-check-square"></i></a>':'';
+    html += CAN_ACTIVAR ? ' <a data-rel="tooltip" data-placement="left" onclick="activar(' + meta.row + ')" title="Activar paciente" href="javascript:void(0)" class="m-2"><i class="fa fa-check-square"></i></a>':'';
     html += CAN_CONSULT ? ' <a data-rel="tooltip" data-placement="left" onclick="consultar(' + meta.row + ')" title="Consultar" href="javascript:void(0)" class="m-2"><i class="fa fa-search"></i></a>':'';
     html += CAN_EDIT? ' <a data-rel="tooltip" data-placement="left"  onclick="edit(' + meta.row + ')" title="Modificar" href="javascript:void(0)" class="m-2"><i class="fa fa-edit"></i></a>':'';
     return html;
 }
 
-function verificar(row) {
-    /*let rowData = $(TABLE_ID).DataTable().row(row).data();
-    let url = BACKEND_URL  + '';
-    let data = rowData.carnetExportador;
-    showConfirmMessage('Desea verificar al exportador con carnet: ' + rowData.carnetExportador, function () {
+function activar(row) {
+    let rowData = $(TABLE_ID).DataTable().row(row).data();
+    console.log(rowData);
+    let url = BACKEND_URL  + '/api/fichaAdulto/activar';
+    let data = rowData;
+    showConfirmMessage('¿Desea activar a la persona ' + rowData.nombres + ' como paciente?', function () {
         ajaxPostCall(url, data, null, function (result) {
             $(TABLE_ID).DataTable().ajax.reload(null, false);
         });
-    });*/
+    });
 }
 
 function edit(row) {

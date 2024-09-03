@@ -1,23 +1,23 @@
-const TABLE_ID = '#personasRegistradasDT';
+const TABLE_ID = '#pacientesDT';
 const FORM_ID = '#formFichaAdulto';
 const FORM_ID_MOD = '#formInscribirExportador';
 const  CAN_EDIT = true;
 const  CAN_CONSULT = true;
-const  CAN_ACTIVAR = true;
+const  CAN_INACTIVAR = true;
 
 function renderActions(data, type, row, meta) {
     let html = '';
-    html += CAN_ACTIVAR ? ' <a data-rel="tooltip" data-placement="left" onclick="activar(' + meta.row + ')" title="Activar paciente" href="javascript:void(0)" class="m-2"><i class="fa fa-check-square"></i></a>':'';
+    html += CAN_INACTIVAR ? ' <a data-rel="tooltip" data-placement="left" onclick="inactivar(' + meta.row + ')" title="Inactivar paciente" href="javascript:void(0)" class="m-2"><i class="fa fa-check-square"></i></a>':'';
     html += CAN_CONSULT ? ' <a data-rel="tooltip" data-placement="left" onclick="consultar(' + meta.row + ')" title="Consultar" href="javascript:void(0)" class="m-2"><i class="fa fa-search"></i></a>':'';
     html += CAN_EDIT? ' <a data-rel="tooltip" data-placement="left"  onclick="edit(' + meta.row + ')" title="Modificar" href="javascript:void(0)" class="m-2"><i class="fa fa-edit"></i></a>':'';
     return html;
 }
 
-function activar(row) {
+function inactivar(row) {
     let rowData = $(TABLE_ID).DataTable().row(row).data();
-    let url = BACKEND_URL  + '/api/fichaAdulto/activar';
+    let url = BACKEND_URL  + '/api/fichaAdulto/inactivar';
     let data = rowData;
-    showConfirmMessage('¿Desea activar a la persona ' + rowData.nombres + ' como paciente?', function () {
+    showConfirmMessage('¿Desea inactivar a la persona ' + rowData.nombres + ' como paciente?', function () {
         ajaxPostCall(url, data, null, function (result) {
             $(TABLE_ID).DataTable().ajax.reload(null, false);
         });
@@ -90,7 +90,7 @@ jQuery(function ($) {
     //DATATABLE DE EXPORTADORES EN PANTALLA VERIFICAR
     $(TABLE_ID).DataTable({
         ajax: {
-            url: BACKEND_URL + '/api/fichaAdulto/dtInscritas',
+            url: BACKEND_URL + '/api/fichaAdulto/dtActivas',
             dataSrc: ''  // DataTables espera un array de objetos directamente
         },
         columns: [
