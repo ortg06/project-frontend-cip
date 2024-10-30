@@ -5,7 +5,7 @@
 
 /*modificacion global a todos los thead de tables*/
 .table thead th{
-  background-color: #008F87 !important;
+  background-color: #135452 !important;
   color: white;
 }
 
@@ -14,7 +14,7 @@ th {
 }
 
 .card-header{
-  background-color: #008F87 !important;
+  background-color: #135452 !important;
 }
 
 .main-sidebar {
@@ -23,7 +23,7 @@ th {
 
 /* Cambia el color de fondo del elemento principal del menú cuando está activo */
 .nav-item.menu.menu-open > .nav-link {
-  background-color: #008F87 !important;
+  background-color: #135452 !important;
   color: white !important;
 }
 
@@ -56,9 +56,9 @@ th {
 
 /* styles.css */
 .btn-custom {
-  background-color: #008F87; /* Cambia este color al que desees */
+  background-color: #135452; /* Cambia este color al que desees */
   color: white; /* Color del texto */
-  border: 1px solid #008F87; /* Borde del botón */
+  border: 1px solid #135452; /* Borde del botón */
   border-radius: 0.25rem; /* Bordes redondeados, opcional */
   padding: 0.375rem 0.75rem; /* Espaciado interno, opcional */
   font-size: 1rem; /* Tamaño de fuente, opcional */
@@ -66,8 +66,8 @@ th {
 }
 
 .btn-custom:hover {
-  background-color: #02fde8; /* Color de fondo al pasar el ratón por encima */
-  border-color: #02fde8; /* Borde al pasar el ratón por encima */
+  background-color: #135452; /* Color de fondo al pasar el ratón por encima */
+  border-color: #135452; /* Borde al pasar el ratón por encima */
   color: #032d23; /* Asegúrate de que el texto sea legible */
 }
 
@@ -84,4 +84,84 @@ th {
 .banner img {
   width: 300%; /* Hace que la imagen se ajuste al ancho del contenedor */
   height: 40%; /* Mantiene la proporción de la imagen */
+}
+
+.sidebar {
+  width: 250px; /* Ajusta según sea necesario */
+  height: 100vh; /* Ocupa toda la altura de la ventana */
+  position: fixed; /* Mantiene el sidebar en su lugar */
+  top: 0;
+  left: 0;
+  overflow-y: auto; /* Permite scroll si es necesario */
+}
+
+.content-wrapper {
+  margin-left: 250px; /* Deja espacio para el sidebar */
+  padding: 5px; /* Espaciado interno */
+  padding-bottom: 75px;
+  height: 100vh; /* Ocupa toda la altura de la ventana */
+  overflow-y: auto; /* Permite el scroll solo en el contenido */
+}
+
+body, html {
+  margin: 0;
+  height: 100%;
+  overflow: hidden; /* Evita el scroll en la ventana principal */
+}
+
+.wrapper {
+  display: flex;
+}
+
+
+/*color label que acompañan los input*/
+.label-color-principal{
+  color: #634834;
+}
+
+/* Estilo básico del radio button */
+/* Estilo básico del radio button */
+.form-check-input {
+  display: none; /* Oculta el original */
+}
+
+/* Estilo del label como radio button personalizado */
+.custom-radio {
+  position: relative;
+  padding-left: 30px; /* Espacio para el punto */
+  cursor: pointer;
+  user-select: none; /* Evita la selección de texto */
+}
+
+/* Crea el punto del radio button */
+.custom-radio::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px; /* Tamaño total del círculo */
+  height: 20px; /* Tamaño total del círculo */
+  border: 2px solid #135452; /* Color del borde */
+  border-radius: 50%; /* Hacerlo redondo */
+  background-color: transparent; /* Fondo transparente */
+}
+
+/* Crea el punto interno */
+.custom-radio::after {
+  content: '';
+  position: absolute;
+  left: 4px; /* Espacio desde el borde */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px; /* Tamaño del punto interno */
+  height: 12px; /* Tamaño del punto interno */
+  border-radius: 50%; /* Hacerlo redondo */
+  background-color: #135452; /* Color del punto */
+  opacity: 0; /* Oculto por defecto */
+}
+
+/* Estilo cuando está seleccionado */
+.form-check-input:checked + .custom-radio::after {
+  opacity: 1; /* Muestra el punto interno cuando está seleccionado */
 }

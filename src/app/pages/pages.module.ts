@@ -14,6 +14,7 @@ import { PreEntrevistaComponent } from './formularios/pre-entrevista/pre-entrevi
 import { FichaAdultoComponent } from './formularios/ficha-adulto/ficha-adulto.component';
 import { PersonasComponent } from './datatable/personas/personas.component';
 import { PacientesComponent } from './datatable/pacientes/pacientes.component';
+import { FichaMenorEdadComponent } from './formularios/ficha-menor-edad/ficha-menor-edad.component';
 
 @NgModule({
     declarations: [
@@ -27,7 +28,8 @@ import { PacientesComponent } from './datatable/pacientes/pacientes.component';
         PreEntrevistaComponent,
         FichaAdultoComponent,
         PersonasComponent,
-        PacientesComponent
+        PacientesComponent,
+        FichaMenorEdadComponent
     ],
     imports: [
         BrowserModule,

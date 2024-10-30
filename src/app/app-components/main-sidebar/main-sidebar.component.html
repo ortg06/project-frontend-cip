@@ -1,7 +1,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4" >
     <!-- Brand Logo -->
-    <a href="auth/home" class="brand-link">
+    <a href="/home" class="brand-link">
         <img src="assets/img/Logo2.png" alt="CIP" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-bold">SCIP v1.0</span>
     </a>
@@ -35,13 +35,13 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
 
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
 
                 <!-- Add icons to the links using the .nav-icon class
                     with font-awesome or any other icon font library -->
-                <li class="nav-item menu">
+                <li class="nav-item has-treeview menu">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-list"></i>
                         <p>Formularios
@@ -51,14 +51,20 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a routerLink="formularios/fichaAdulto" class="nav-link" >
-                                <i class="fas fa-list nav-icon"></i>
+                                <i class="fas fa-file nav-icon"></i>
                                 <p>Formularios Ficha Adulto</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a routerLink="formularios/preEntrevista" class="nav-link" >
-                                <i class="fas fa-list nav-icon"></i>
+                                <i class="fas fa-file nav-icon"></i>
                                 <p>Pre Entrevista</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLink="formularios/fichaMenorEdad" class="nav-link" >
+                                <i class="fas fa-file nav-icon"></i>
+                                <p>Ficha Menor de Edad</p>
                             </a>
                         </li>
                     </ul>

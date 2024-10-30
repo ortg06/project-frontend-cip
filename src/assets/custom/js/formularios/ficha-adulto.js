@@ -4,6 +4,7 @@ const FORM_ID_MOD = '#formInscribirExportador';
 const  CAN_EDIT = true;
 const  CAN_CONSULT = true;
 const  CAN_ACTIVAR = true;
+let isValidForm = false; //bandera para validar formulario
 
 function renderActions(data, type, row, meta) {
     let html = '';
@@ -125,14 +126,17 @@ const select2Grouped = function (selector, url, rows) {
 };
 
 
-function toggleField(radio,idRadio,label,label2){
+function toggleField(radio,idRadio,input,input2){
     $('input[name="'+radio+'"]').on('change', function() {
         if ($(idRadio).is(':checked')) {
-            $(label).prop("disabled", false); // Habilitar el campo si se selecciona "Sí"
-            $(label2).val('S');
+            $(input).prop("disabled", false); // Habilitar el campo si se selecciona "Sí"
+            $(input).attr('required', 'required');
+            $(input2).val('S');
         } else {
-            $(label).prop("disabled", true);  // Deshabilitar el campo si se selecciona "No"
-            $(label2).val('N');
+            $(input).prop("disabled", true);  // Deshabilitar el campo si se selecciona "No"
+            $(input).removeAttr('required');
+            $(input).val("");
+            $(input2).val('N');
         }
     });
 }
@@ -147,6 +151,7 @@ jQuery(function ($) {
     $("#cantidadHijo").prop("disabled", true);
     $("#lugarEstudio").prop("disabled", true);
     $("#lugarTrabajo").prop("disabled", true);
+    $("#cargoDesempeña").prop("disabled", true);
     $("#enfermedadEspecifica").prop("disabled", true);
     $("#diagnosticoFamiliar").prop("disabled", true);
     $("#diagnosticoPropio").prop("disabled", true);
@@ -156,6 +161,7 @@ jQuery(function ($) {
      toggleField('radio1','#hijosSi','#cantidadHijo','#tieneHijo');
      toggleField('radio2','#estudiaSi', '#lugarEstudio','#estudia');
      toggleField('radio3','#trabajaSi', '#lugarTrabajo','#trabaja');
+     toggleField('radio3','#trabajaSi', '#cargoDesempeña','#trabaja');
      toggleField('radio4','#enfermedadSi', '#enfermedadEspecifica','#padeceEnfermedad');
      toggleField('radio5','#antecedentesSi', '#diagnosticoFamiliar','#existeAntecedentePsi');
      toggleField('radio6', '#tratamientoSi','#diagnosticoPropio','#tratamientoPsicoActual');
@@ -178,35 +184,6 @@ jQuery(function ($) {
     });
 
 
-     //DATATABLE DE EXPORTADORES EN PANTALLA VERIFICAR
-     $(TABLE_ID).DataTable({
-         ajax: {
-             url: BACKEND_URL + '/api/paises/dt',
-             dataSrc: ''  // DataTables espera un array de objetos directamente
-         },
-         columns: [
-             {
-                 data: 'codigoPais',
-                 width: "10%",
-             },
-             {
-                 data: 'nombrePais'
-             },
-             {
-                 data: 'nombrePaisAbr'
-             },
-             {
-                 data: 'codigoPais',
-                 searchable: false,
-                 orderable: false,
-                 render: renderActions // Asegúrate de definir esta función
-             }
-         ],
-         order: [
-             [0, 'asc']
-         ]
-     });
-
      //servicio
      select2single('#servicio', BACKEND_URL + '/api/servicio/s2', 10);
 
@@ -217,12 +194,21 @@ jQuery(function ($) {
      select2WithChildrens('#lugarNacimiento',BACKEND_URL + '/api/util/s2DeptoWithMunicipio',10);
 
      //checkboxes
-    $("#nextButton").on('click',function(){
-        $("#saveButton").show();
-        $("#nextButton").hide();
+   $("#nextButton").on('click',function(){
+
+        isValidForm = $("#formFichaAdulto").valid();
+
+        if(isValidForm === true){
+            const stepper = new Stepper(document.querySelector('#stepper'));
+            stepper.next();
+            $("#saveButton").show();
+            $("#nextButton").hide();
+        }
     });
 
     $("#previousButton").on('click',function(){
+        const stepper = new Stepper(document.querySelector('#stepper'));
+        stepper.previous();
         $("#saveButton").hide();
         $("#nextButton").show();
     });
@@ -234,5 +220,8 @@ jQuery(function ($) {
             $("#saveButton").attr("disabled", true);
         }
     });
+
+
+
 
 });

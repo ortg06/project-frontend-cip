@@ -36,7 +36,7 @@ export class FichaAdultoComponent implements AfterViewInit,OnInit{
       const nextButtonElement = this.nextButton.nativeElement;
       const previousButtonElement = this.previousButton.nativeElement;
 
-      if (nextButtonElement) {
+     /* if (nextButtonElement) {
         nextButtonElement.addEventListener('click', () => {
           this.stepper.next();
         });
@@ -46,7 +46,7 @@ export class FichaAdultoComponent implements AfterViewInit,OnInit{
         previousButtonElement.addEventListener('click', () => {
           this.stepper.previous();
         });
-      }
+      }*/
     } else {
       console.error('Stepper element not found');
     }

@@ -6,6 +6,7 @@ import {FichaAdultoComponent} from "./formularios/ficha-adulto/ficha-adulto.comp
 import {PreEntrevistaComponent} from "./formularios/pre-entrevista/pre-entrevista.component";
 import {PersonasComponent} from "./datatable/personas/personas.component";
 import {PacientesComponent} from "./datatable/pacientes/pacientes.component";
+import {FichaMenorEdadComponent} from "./formularios/ficha-menor-edad/ficha-menor-edad.component";
 
 
 const routes: Routes = [
@@ -35,6 +36,11 @@ const routes: Routes = [
         {
           path: 'tabla/pacientes',
           component: PacientesComponent,
+          pathMatch: 'full'
+        },
+        {
+          path: 'formularios/fichaMenorEdad',
+          component: FichaMenorEdadComponent,
           pathMatch: 'full'
         }
       ]

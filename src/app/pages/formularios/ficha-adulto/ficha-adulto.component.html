@@ -57,22 +57,22 @@
                                             <div class="card-body">
                                                 <div class="row">
                                                     <div class="form-group col-sm-12">
-                                                        <label style="color: #634834;">Nombre Completo:</label>
-                                                        <input id="nombres" name="nombres" type="text" class="form-control" placeholder="Ingrese Nombre Completo" maxlength="100">
+                                                        <label class="label-color-principal">Nombre Completo:</label>
+                                                        <input id="nombres" name="nombres" type="text" class="form-control" placeholder="Ingrese Nombre Completo" maxlength="100" required>
                                                     </div>
                                                 </div>
                                                 <!-- radio -->
                                                 <div class="row">
                                                     <div class="form-group col-sm-4">
-                                                        <label>Fecha de nacimiento:</label>
+                                                        <label class="label-color-principal">Fecha de nacimiento:</label>
                                                         <div class="input-group mb-3">
                                                             <input type="text" name="fechaNacimiento" id="fechaNacimiento"
                                                                    class="form-control datetimepicker-input datepicker" data-toggle="datetimepicker"
-                                                                   data-target="#fechaNacimiento" placeholder="dd/mm/aaaa"  >
+                                                                   data-target="#fechaNacimiento" placeholder="dd/mm/aaaa" required >
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-sm-4">
-                                                        <label for="lugarNacimiento">Lugar de Nacimiento:
+                                                        <label class="label-color-principal" for="lugarNacimiento">Lugar de Nacimiento:
                                                         </label>
                                                         <div class="input-group mb-3">
                                                             <div class="flex-fill">
@@ -84,8 +84,8 @@
                                                     </div>
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
-                                                            <label for="nacionalidad">Nacionalidad:</label>
-                                                            <input type="text" name="nacionalidad" id="nacionalidad" class="form-control" placeholder="Ingrese la Nacionalidad" maxlength="50">
+                                                            <label class="label-color-principal" for="nacionalidad">Nacionalidad:</label>
+                                                            <input type="text" name="nacionalidad" id="nacionalidad" class="form-control" placeholder="Ingrese la Nacionalidad" maxlength="50" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -93,65 +93,66 @@
 
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
-                                                            <label for="genero">G&eacute;nero:</label>
-                                                            <input type="text" name="genero" id="genero"  class="form-control" placeholder="Ingrese su Género" maxlength="100">
+                                                            <label class="label-color-principal"  for="genero">G&eacute;nero:</label>
+                                                            <input type="text" name="genero" id="genero"  class="form-control" placeholder="Ingrese su Género" maxlength="100" required>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
-                                                            <label for="dui">No. de documento de identidad(DUI/Pasaporte):</label>
-                                                            <input type="text" name="dui" id="dui" class="form-control" placeholder="Ingrese No. de documento de identidad(DUI/Pasaporte)" maxlength="20">
+                                                            <label class="label-color-principal" for="dui">No. de documento de identidad(DUI/Pasaporte):</label>
+                                                            <input type="text" name="dui" id="dui" class="form-control" placeholder="Ingrese No. de documento de identidad(DUI/Pasaporte)" maxlength="20" required>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
-                                                            <label for="celular">No. teléfono celular:</label>
-                                                            <input type="text" name="celular" id="celular" class="form-control" placeholder="Ingrese No. teléfono celular" maxlength="12">
+                                                            <label class="label-color-principal" for="celular">No. teléfono celular:</label>
+                                                            <input type="text" name="celular" id="celular" class="form-control" placeholder="Ingrese No. teléfono celular" maxlength="12" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
-                                                            <label for="telefono1">No. Teléfono casa:</label>
-                                                            <input type="text" name="telefono1" id="telefono1" class="form-control" placeholder="Ingrese No. Teléfono casa" maxlength="12">
+                                                            <label class="label-color-principal" for="telefono1">No. Teléfono casa:</label>
+                                                            <input type="text" name="telefono1" id="telefono1" class="form-control" placeholder="Ingrese No. Teléfono casa" maxlength="12" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
-                                                            <label for="telefono2">No. teléfono adicional:</label>
-                                                            <input type="text" name="telefono2" id="telefono2" class="form-control" placeholder="Ingrese No. teléfono adicional" maxlength="12">
+                                                            <label class="label-color-principal" for="telefono2">No. teléfono adicional:</label>
+                                                            <input type="text" name="telefono2" id="telefono2" class="form-control" placeholder="Ingrese No. teléfono adicional" maxlength="12" required>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
-                                                            <label for="lugarResidencia">Dirección Actual Completa de Residencia:</label>
-                                                            <input type="text"  name="lugarResidencia" id="lugarResidencia" class="form-control" placeholder="Ingrese Dirección Actual Completa de Residencia" maxlength="255">
+                                                            <label class="label-color-principal" for="lugarResidencia">Dirección Actual Completa de Residencia:</label>
+                                                            <input type="text"  name="lugarResidencia" id="lugarResidencia" class="form-control"
+                                                                   placeholder="Ingrese Dirección Actual Completa de Residencia" maxlength="255" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
-                                                            <label>Correo Electrónico:</label>
-                                                            <input type="text"  name="correo" id="correo" class="form-control" placeholder="Ingrese Correo Electrónico" maxlength="75">
+                                                            <label class="label-color-principal" >Correo Electrónico:</label>
+                                                            <input type="text"  name="correo" id="correo" class="form-control" placeholder="Ingrese Correo Electrónico" maxlength="75" required>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
-                                                            <label class="d-flex align-items-center">
+                                                            <label class="d-flex align-items-center label-color-principal">
                                                                 Tiene hijos:
                                                                 <div class="ml-3 d-flex">
                                                                     <div class="form-check mr-3">
                                                                         <input class="form-check-input" type="radio" id="hijosSi" name="radio1" value="Si">
-                                                                        <label class="form-check-label" for="hijosSi">Sí</label>
+                                                                        <label class="custom-radio" for="hijosSi">Sí</label>
                                                                     </div>
                                                                     <div class="form-check">
                                                                         <input class="form-check-input" type="radio" id="hijosNo" name="radio1" value="No" checked>
-                                                                        <label class="form-check-label" for="hijosNo">No</label>
+                                                                        <label class="custom-radio" for="hijosNo">No</label>
                                                                     </div>
                                                                 </div>
                                                             </label>
@@ -159,25 +160,41 @@
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
-                                                            <label for="cantidadHijo">Cuantos Hijos Tiene:</label>
+                                                            <label class="label-color-principal" for="cantidadHijo">Cuantos Hijos Tiene:</label>
                                                             <input type="number" name="cantidadHijo" id="cantidadHijo" class="form-control" placeholder="Ingrese Cuantos Hijos Tiene" min="0" max="20">
                                                         </div>
                                                     </div>
                                                 </div>
-
                                                 <div class="row">
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
-                                                            <label class="d-flex align-items-center">
+                                                            <label class="label-color-principal">Grado Académico Alcanzado:</label>
+                                                            <select name="gradoAcademico" id="gradoAcademico"
+                                                                    class="form-control select2" required>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-8">
+                                                        <div class="form-group">
+                                                            <label class="label-color-principal" for="especialidadEstudio">Especialidad de Estudio:</label>
+                                                            <input type="text" name="especialidadEstudio" id="especialidadEstudio" class="form-control"
+                                                                   placeholder="Ingrese Especialidad de Estudio" maxlength="100" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-4">
+                                                        <div class="form-group">
+                                                            <label class="d-flex align-items-center label-color-principal">
                                                                 Estudia Actualmente:
                                                                 <div class="ml-3 d-flex">
                                                                     <div class="form-check mr-3">
                                                                         <input class="form-check-input" type="radio" id="estudiaSi" name="radio2" value="Si">
-                                                                        <label class="form-check-label" for="estudiaSi">Sí</label>
+                                                                        <label class="custom-radio" for="estudiaSi">Sí</label>
                                                                     </div>
                                                                     <div class="form-check">
                                                                         <input class="form-check-input" type="radio" id="estudiaNo" name="radio2" value="No" checked>
-                                                                        <label class="form-check-label" for="estudiaNo">No</label>
+                                                                        <label class="custom-radio" for="estudiaNo">No</label>
                                                                     </div>
                                                                 </div>
                                                             </label>
@@ -185,7 +202,7 @@
                                                     </div>
                                                     <div class="col-sm-8">
                                                         <div class="form-group">
-                                                            <label for="lugarEstudio">Lugar de Estudio:</label>
+                                                            <label class="label-color-principal" for="lugarEstudio">Lugar de Estudio:</label>
                                                             <input type="text" name="lugarEstudio"  id="lugarEstudio" class="form-control" placeholder="Ingrese Lugar de Estudio" maxlength="150">
                                                         </div>
                                                     </div>
@@ -194,32 +211,16 @@
                                                 <div class="row">
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
-                                                            <label>Grado Académico Alcanzado:</label>
-                                                            <select name="gradoAcademico" id="gradoAcademico"
-                                                                    class="form-control select2" required>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-8">
-                                                        <div class="form-group">
-                                                            <label for="especialidadEstudio">Especialidad de Estudio:</label>
-                                                            <input type="text" name="especialidadEstudio" id="especialidadEstudio" class="form-control" placeholder="Ingrese Especialidad de Estudio" maxlength="100">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-sm-4">
-                                                        <div class="form-group">
-                                                            <label class="d-flex align-items-center">
+                                                            <label  class="d-flex align-items-center label-color-principal">
                                                                 Trabaja actualmente
                                                                 <div class="ml-3 d-flex">
                                                                     <div class="form-check mr-3">
                                                                         <input class="form-check-input" type="radio" id="trabajaSi" name="radio3" value="Si">
-                                                                        <label class="form-check-label" for="trabajaSi">Sí</label>
+                                                                        <label class="custom-radio" for="trabajaSi">Sí</label>
                                                                     </div>
                                                                     <div class="form-check">
                                                                         <input class="form-check-input" type="radio" id="trabajaNo" name="radio3" value="No" checked>
-                                                                        <label class="form-check-label" for="trabajaNo">No</label>
+                                                                        <label class="custom-radio" for="trabajaNo">No</label>
                                                                     </div>
                                                                 </div>
                                                             </label>
@@ -227,14 +228,16 @@
                                                     </div>
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
-                                                            <label for="lugarTrabajo">Lugar de Trabajo:</label>
-                                                            <input type="text"  name="lugarTrabajo" id="lugarTrabajo" class="form-control" placeholder="Ingrese Lugar de Trabajo" maxlength="150">
+                                                            <label class="label-color-principal" for="lugarTrabajo">Lugar de Trabajo:</label>
+                                                            <input type="text"  name="lugarTrabajo" id="lugarTrabajo" class="form-control"
+                                                                   placeholder="Ingrese Lugar de Trabajo" maxlength="150">
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
-                                                            <label for="cargoDesempeña">Cargo que Desempeña:</label>
-                                                            <input type="text" name="cargoDesempeña" id="cargoDesempeña" class="form-control" placeholder="Ingrese Cargo que Desempeña" maxlength="100">
+                                                            <label class="label-color-principal" for="cargoDesempeña">Cargo que Desempeña:</label>
+                                                            <input type="text" name="cargoDesempeña" id="cargoDesempeña" class="form-control"
+                                                                   placeholder="Ingrese Cargo que Desempeña" maxlength="100" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -242,16 +245,16 @@
                                                 <div class="row">
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
-                                                            <label class="d-flex align-items-center">
+                                                            <label class="d-flex align-items-center label-color-principal">
                                                                 Padece de Alguna Enfermedad Física:
                                                                 <div class="ml-3 d-flex">
                                                                     <div class="form-check mr-3">
                                                                         <input class="form-check-input" type="radio" id="enfermedadSi" name="radio4">
-                                                                        <label class="form-check-label" for="enfermedadSi">Sí</label>
+                                                                        <label class="custom-radio" for="enfermedadSi">Sí</label>
                                                                     </div>
                                                                     <div class="form-check">
                                                                         <input class="form-check-input" type="radio" id="enfermedadNo" name="radio4" checked>
-                                                                        <label class="form-check-label" for="enfermedadNo">No</label>
+                                                                        <label class="custom-radio" for="enfermedadNo">No</label>
                                                                     </div>
                                                                 </div>
                                                             </label>
@@ -259,8 +262,9 @@
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
-                                                            <label for="enfermedadEspecifica">Especificar que Enfermedad Física Padece:</label>
-                                                            <input type="text" name="enfermedadEspecifica" id="enfermedadEspecifica" class="form-control" placeholder="Ingrese Enfermedad Física Padece" maxlength="150">
+                                                            <label class="label-color-principal" for="enfermedadEspecifica">Especificar que Enfermedad Física Padece:</label>
+                                                            <input type="text" name="enfermedadEspecifica" id="enfermedadEspecifica"
+                                                                   class="form-control" placeholder="Ingrese Enfermedad Física Padece" maxlength="150">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -271,16 +275,16 @@
                                             <div class="row">
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
-                                                        <label class="d-flex align-items-center">
+                                                        <label class="d-flex align-items-center label-color-principal">
                                                             ¿Existen antecedentes psiquiátricos en su familia?
                                                             <div class="ml-3 d-flex">
                                                                 <div class="form-check mr-3">
                                                                     <input class="form-check-input" type="radio" id="antecedentesSi" name="radio5">
-                                                                    <label class="form-check-label" for="antecedentesSi">Sí</label>
+                                                                    <label class="custom-radio" for="antecedentesSi">Sí</label>
                                                                 </div>
                                                                 <div class="form-check">
                                                                     <input class="form-check-input" type="radio" id="antecedentesNo" name="radio5" checked>
-                                                                    <label class="form-check-label" for="antecedentesNo">No</label>
+                                                                    <label class="custom-radio" for="antecedentesNo">No</label>
                                                                 </div>
                                                             </div>
                                                         </label>
@@ -288,24 +292,25 @@
                                                 </div>
                                                 <div class="col-sm-8">
                                                     <div class="form-group">
-                                                        <label for="diagnosticoFamiliar">¿Que Diagnostico Tiene su Familiar?</label>
-                                                        <input type="text" name="diagnosticoFamiliar" id="diagnosticoFamiliar" class="form-control" placeholder="Ingrese el Diagnostico que tiene su Familiar" maxlength="250">
+                                                        <label class="label-color-principal" for="diagnosticoFamiliar">¿Que Diagnostico Tiene su Familiar?</label>
+                                                        <input type="text" name="diagnosticoFamiliar" id="diagnosticoFamiliar" class="form-control"
+                                                               placeholder="Ingrese el Diagnostico que tiene su Familiar" maxlength="250" required>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <label class="d-flex align-items-center">
+                                                        <label class="d-flex align-items-center label-color-principal">
                                                             Actualmente se encuentra o se ha encontrado Ud. ¿En Tratamiento Psiquiátrico?
                                                             <div class="ml-3 d-flex">
                                                                 <div class="form-check mr-3">
                                                                     <input class="form-check-input" type="radio" id="tratamientoSi" name="radio6">
-                                                                    <label class="form-check-label" for="tratamientoSi">Sí</label>
+                                                                    <label class="custom-radio" for="tratamientoSi">Sí</label>
                                                                 </div>
                                                                 <div class="form-check">
                                                                     <input class="form-check-input" type="radio" id="tratamientoNo" name="radio6" checked>
-                                                                    <label class="form-check-label" for="tratamientoNo">No</label>
+                                                                    <label class="custom-radio" for="tratamientoNo">No</label>
                                                                 </div>
                                                             </div>
                                                         </label>
@@ -315,22 +320,25 @@
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <label for="diagnosticoPropio">¿Cual es el Diagnostico Brindado por su Médico?</label>
-                                                        <textarea name="diagnosticoPropio" id="diagnosticoPropio" class="form-control" placeholder="Ingrese el Diagnostico Brindado por su Médico" maxlength="250"></textarea>
+                                                        <label class="label-color-principal" for="diagnosticoPropio">¿Cual es el Diagnostico Brindado por su Médico?</label>
+                                                        <textarea name="diagnosticoPropio" id="diagnosticoPropio" class="form-control"
+                                                                  placeholder="Ingrese el Diagnostico Brindado por su Médico" maxlength="250" required></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <label for="medicamentos">¿Cual es/son los Medicamentos Recetados?</label>
-                                                        <input type="text" name="medicamentos"  id="medicamentos" class="form-control" placeholder="Ingrese los Medicamentos Recetados" maxlength="150">
+                                                        <label class="label-color-principal" for="medicamentos">¿Cual es/son los Medicamentos Recetados?</label>
+                                                        <input type="text" name="medicamentos"  id="medicamentos" class="form-control"
+                                                               placeholder="Ingrese los Medicamentos Recetados" maxlength="150" required>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <label for="tiempoTratamiento">¿Cuál ha sido el Tiempo Estipulado para el Tratamiento?</label>
-                                                        <input type="text" name="tiempoTratamiento" id="tiempoTratamiento" class="form-control" placeholder="Ingrese el Tiempo Estipulado para el Tratamiento" maxlength="50">
+                                                        <label class="label-color-principal" for="tiempoTratamiento">¿Cuál ha sido el Tiempo Estipulado para el Tratamiento?</label>
+                                                        <input type="text" name="tiempoTratamiento" id="tiempoTratamiento" class="form-control"
+                                                               placeholder="Ingrese el Tiempo Estipulado para el Tratamiento" maxlength="50" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -338,7 +346,7 @@
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <label for="servicio">Servicio que solicita:</label>
+                                                        <label class="label-color-principal" for="servicio">Servicio que solicita:</label>
                                                         <select name="servicio" id="servicio"
                                                                 class="form-control select2" required>
                                                         </select>
@@ -346,7 +354,7 @@
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <label>Modalidad del servicio que solicita</label>
+                                                        <label class="label-color-principal" >Modalidad del servicio que solicita</label>
                                                         <select name="modalidadServicio" id="modalidadServicio" class="form-control select3" style="width: 100%;">
                                                             <option value="P">Presencial</option>
                                                             <option value="V">Virtual</option>
@@ -357,31 +365,31 @@
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <label for="motivoConsulta">¿Cuál es el motivo de su consulta?</label>
-                                                        <textarea name="motivoConsulta" id="motivoConsulta" class="form-control" placeholder="Ingrese el motivo de su consulta" maxlength="250"></textarea>
+                                                        <label class="label-color-principal" for="motivoConsulta">¿Cuál es el motivo de su consulta?</label>
+                                                        <textarea name="motivoConsulta" id="motivoConsulta" class="form-control" placeholder="Ingrese el motivo de su consulta" maxlength="250" required></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-sm-6">
-                                                    <label>¿Desde cuándo se presenta el problema?</label>
+                                                    <label class="label-color-principal">¿Desde cuándo se presenta el problema?</label>
                                                     <div class="input-group mb-3">
                                                         <input type="text" name="desdeProblema" id="desdeProblema"
                                                                class="form-control datetimepicker-input datepicker" data-toggle="datetimepicker"
-                                                               data-target="#desdeProblema" placeholder="dd/mm/aaaa"  >
+                                                               data-target="#desdeProblema" placeholder="dd/mm/aaaa"  required>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
-                                                        <label>¿Ha asistido antes a consultas psicológica?</label>
+                                                        <label class="label-color-principal">¿Ha asistido antes a consultas psicológica?</label>
                                                         <div class="form-check-inline">
                                                             <div class="form-check">
                                                                 <input class="form-check-input" type="radio" name="radio7" id="consultasSi">
-                                                                <label class="form-check-label" for="consultasSi">Sí</label>
+                                                                <label class="custom-radio" for="consultasSi">Sí</label>
                                                             </div>
                                                             <div class="form-check">
                                                                 <input class="form-check-input" type="radio" name="radio7" id="consultasNo" checked>
-                                                                <label class="form-check-label" for="consultasNo">No</label>
+                                                                <label class="custom-radio" for="consultasNo">No</label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -389,16 +397,16 @@
                                             </div>
                                             <div class="row">
                                                 <div class="form-group col-sm-4">
-                                                    <label>¿En que año?</label>
+                                                    <label class="label-color-principal">¿En que año?</label>
                                                     <div class="input-group mb-3">
                                                         <input type="text" name="anioConsultaAnterior" id="anioConsultaAnterior"
                                                                class="form-control datetimepicker-input datepicker" data-toggle="datetimepicker"
-                                                               data-target="#anioConsultaAnterior" placeholder="dd/mm/aaaa"  >
+                                                               data-target="#anioConsultaAnterior" placeholder="dd/mm/aaaa">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-8">
                                                     <div class="form-group">
-                                                        <label>¿Que consultó en este momento?</label>
+                                                        <label class="label-color-principal">¿Que consultó en este momento?</label>
                                                         <textarea name="consultaAnterior" id="consultaAnterior" class="form-control" placeholder="Ingrese el motivo" maxlength="200"></textarea>
                                                     </div>
                                                 </div>
@@ -406,30 +414,34 @@
                                             <div class="row">
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
-                                                        <label for="nombreEmergencia">En caso de emergencia, ¿A quién podemos llamar? (Favor coloque el nombre completo de la persona). </label>
-                                                        <input type="text" name="nombreEmergencia" id="nombreEmergencia" class="form-control" placeholder="Ingrese el nombre completo de la persona" maxlength="100">
+                                                        <label class="label-color-principal" for="nombreEmergencia">En caso de emergencia, ¿A quién podemos llamar? (Favor coloque el nombre completo de la persona). </label>
+                                                        <input type="text" name="nombreEmergencia" id="nombreEmergencia" class="form-control"
+                                                               placeholder="Ingrese el nombre completo de la persona" maxlength="100" required>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
-                                                        <label for="parentescoEmergencia">Parentesco</label>
-                                                        <input type="text" name="parentescoEmergencia" id="parentescoEmergencia" class="form-control" placeholder="Ingrese el parentesco" maxlength="100">
+                                                        <label class="label-color-principal" for="parentescoEmergencia">Parentesco</label>
+                                                        <input type="text" name="parentescoEmergencia" id="parentescoEmergencia"
+                                                               class="form-control" placeholder="Ingrese el parentesco" maxlength="100" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
-                                                        <label for="telefonoEmergencia">N° de teléfono</label>
-                                                        <input type="text" name="telefonoEmergencia" id="telefonoEmergencia" class="form-control" placeholder="Ingrese el n° de teléfono" maxlength="12">
+                                                        <label class="label-color-principal" for="telefonoEmergencia">N° de teléfono</label>
+                                                        <input type="text" name="telefonoEmergencia" id="telefonoEmergencia"
+                                                               class="form-control" placeholder="Ingrese el n° de teléfono" maxlength="12" required>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
-                                                        <label for="comentariosAdicional">Comentarios adicionales</label>
-                                                        <textarea class="form-control" name="comentariosAdicional" id="comentariosAdicional" rows="3" placeholder="Ingrese comentario adicional" maxlength="200"></textarea>
+                                                        <label class="label-color-principal" for="comentariosAdicional">Comentarios adicionales</label>
+                                                        <textarea class="form-control" name="comentariosAdicional" id="comentariosAdicional" rows="3"
+                                                                  placeholder="Ingrese comentario adicional" maxlength="200" required></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -437,7 +449,7 @@
                                                 <div class="form-group mb-0">
                                                     <div class="custom-control custom-checkbox">
                                                         <input type="checkbox" name="terms" class="custom-control-input" id="checkterms" onchange="checkTerms()">
-                                                        <label class="custom-control-label" for="checkterms">Toda la información anteriormente proporcionada esta completada para los fines que se estime convenientes y quede enterado/a que es de uso confidencial.</label>
+                                                        <label class="custom-control-label label-color-principal" for="checkterms">Toda la información anteriormente proporcionada esta completada para los fines que se estime convenientes y quede enterado/a que es de uso confidencial.</label>
                                                     </div>
                                                     &nbsp;
                                                 </div>
@@ -448,10 +460,10 @@
                                 </div>
                                 <div class="button-container">
                                     <div class="button-row">
-                                        <button #nextButton id="nextButton" type="button" class="btn btn-custom" style="margin-right: 10px; margin-left: 30px">Siguiente</button>
+                                        <button  #nextButton id="nextButton" type="button" class="btn btn-custom" style="margin-right: 10px; margin-left: 30px">Siguiente</button>
 
                                         <button id="saveButton" type="submit" class="btn btn-success" style="margin-right: 10px; margin-left: 30px">Guardar</button>
-                                        <button #previousButton id="previousButton" type="button" class="btn btn-custom" style="margin-right: 10px">Atrás</button>
+                                        <button  #previousButton id="previousButton" type="button" class="btn btn-custom" style="margin-right: 10px">Atrás</button>
 
                                     </div>
                                 </div>
