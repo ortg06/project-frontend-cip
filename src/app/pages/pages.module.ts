@@ -15,6 +15,7 @@ import { FichaAdultoComponent } from './formularios/ficha-adulto/ficha-adulto.co
 import { PersonasComponent } from './datatable/personas/personas.component';
 import { PacientesComponent } from './datatable/pacientes/pacientes.component';
 import { FichaMenorEdadComponent } from './formularios/ficha-menor-edad/ficha-menor-edad.component';
+import { PreEntrevistaReingresoComponent } from './formularios/pre-entrevista-reingreso/pre-entrevista-reingreso.component';
 
 @NgModule({
     declarations: [
@@ -29,7 +30,8 @@ import { FichaMenorEdadComponent } from './formularios/ficha-menor-edad/ficha-me
         FichaAdultoComponent,
         PersonasComponent,
         PacientesComponent,
-        FichaMenorEdadComponent
+        FichaMenorEdadComponent,
+        PreEntrevistaReingresoComponent
     ],
     imports: [
         BrowserModule,
