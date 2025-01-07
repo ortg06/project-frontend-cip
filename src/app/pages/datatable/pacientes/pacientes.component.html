@@ -27,12 +27,17 @@
                             <h3 class="card-title">Listado de Pacientes Registrados</h3>
                         </div>
                         <div class="card-body ">
+                            <div class="col-sm-6">
+                                <button onclick="nuevoPaciente()" style="margin-bottom: 15px"
+                                        id="btnNuevoPaciente" type="button" class="btn btn-success">Registrar Paciente</button>&nbsp;&nbsp;
+                            </div>
                             <table id="pacientesDT" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
                                     <th>CODIGO PERSONA</th>
                                     <th>NOMBRE COMPLETO</th>
                                     <th>G&Eacute;NERO</th>
+                                    <th>ESTADO</th>
                                     <th>ACCIONES</th>
                                 </tr>
                                 </thead>

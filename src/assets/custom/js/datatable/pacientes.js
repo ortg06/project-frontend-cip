@@ -4,6 +4,7 @@ const FORM_ID_MOD = '#formInscribirExportador';
 const  CAN_EDIT = true;
 const  CAN_CONSULT = true;
 const  CAN_INACTIVAR = true;
+var urlRegistrarPaciente ='formularios/fichaAdulto';
 
 function renderActions(data, type, row, meta) {
     let html = '';
@@ -22,6 +23,10 @@ function inactivar(row) {
             $(TABLE_ID).DataTable().ajax.reload(null, false);
         });
     });
+}
+
+function nuevoPaciente(){
+    window.open(urlRegistrarPaciente, '_blank');
 }
 
 function edit(row) {
@@ -105,10 +110,13 @@ jQuery(function ($) {
                 data: 'genero'
             },
             {
+                data: 'estado.descripcion'
+            },
+            {
                 data: 'codigoPersona',
                 searchable: false,
                 orderable: false,
-                render: renderActions // Asegúrate de definir esta función
+                render: renderActions
             }
         ],
         order: [

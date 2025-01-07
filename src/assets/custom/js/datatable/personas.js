@@ -4,6 +4,7 @@ const FORM_ID_MOD = '#formInscribirExportador';
 const  CAN_EDIT = true;
 const  CAN_CONSULT = true;
 const  CAN_ACTIVAR = true;
+var urlNuevaPreEntrevista = '/formularios/preEntrevista';
 
 function renderActions(data, type, row, meta) {
     let html = '';
@@ -22,6 +23,10 @@ function activar(row) {
             $(TABLE_ID).DataTable().ajax.reload(null, false);
         });
     });
+}
+
+function registrarPreEntrevista(){
+    window.open(urlNuevaPreEntrevista, '_blank');
 }
 
 function edit(row) {
