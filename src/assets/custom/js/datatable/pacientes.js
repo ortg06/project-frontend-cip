@@ -1,14 +1,14 @@
 const TABLE_ID = '#pacientesDT';
 const FORM_ID = '#formFichaAdulto';
-const FORM_ID_MOD = '#formInscribirExportador';
 const  CAN_EDIT = true;
 const  CAN_CONSULT = true;
 const  CAN_INACTIVAR = true;
-var urlRegistrarPaciente ='formularios/fichaAdulto';
+var urlRegistrarPaciente ='pacientes/registrar';
+var urlPaciente = 'pacientes';
 
 function renderActions(data, type, row, meta) {
     let html = '';
-    html += CAN_INACTIVAR ? ' <a data-rel="tooltip" data-placement="left" onclick="inactivar(' + meta.row + ')" title="Inactivar paciente" href="javascript:void(0)" class="m-2"><i class="fa fa-check-square"></i></a>':'';
+    html += CAN_INACTIVAR ? ' <a data-rel="tooltip" data-placement="left" onclick="inactivar(' + meta.row + ')" title="Inactivar paciente" href="javascript:void(0)" class="m-2"><i class="fa fa-ban"></i></a>':'';
     html += CAN_CONSULT ? ' <a data-rel="tooltip" data-placement="left" onclick="consultar(' + meta.row + ')" title="Consultar" href="javascript:void(0)" class="m-2"><i class="fa fa-search"></i></a>':'';
     html += CAN_EDIT? ' <a data-rel="tooltip" data-placement="left"  onclick="edit(' + meta.row + ')" title="Modificar" href="javascript:void(0)" class="m-2"><i class="fa fa-edit"></i></a>':'';
     return html;
@@ -26,33 +26,26 @@ function inactivar(row) {
 }
 
 function nuevoPaciente(){
-    window.open(urlRegistrarPaciente, '_blank');
+    window.open(urlRegistrarPaciente, '_self');
 }
 
 function edit(row) {
-    /*    let data = $(TABLE_ID).DataTable().row(row).data();
-        $('#idexportador').val(data.carnetExportador);
-        populateFormExportadorConsultar(data,1);//1: modificar*/
+    let data = $(TABLE_ID).DataTable().row(row).data();
+    let url = urlPaciente+'/modificar/'+data.codigoPersona;
+    window.open(url, '_self');
 }
-
 
 function consultar(row){
-    /*let data = $(TABLE_ID).DataTable().row(row).data();
-    populateFormExportadorConsultar(data,2);//2: consultar
-    */
+    let data = $(TABLE_ID).DataTable().row(row).data();
+    let url = urlPaciente+'/consultar/'+data.codigoPersona;
+    window.open(url, '_self');
 }
 
+function populateFormFichaAdulto(data){
 
-/*
-function populateFormExportadorConsultar(data,opcion){
-    if(opcion === 1 ){
-        populateForm($(FORM_ID_MOD)[0], data);
-    }else{
-        populateForm($(FORM_ID)[0], data);
-    }
+    populateForm($(FORM_ID)[0], data);
 
-
-    document.getElementById("esGranContribuyenteCheck").checked = data.esGranContribuyente ==="S" ;
+    /*document.getElementById("esGranContribuyenteCheck").checked = data.esGranContribuyente ==="S" ;
     document.getElementById("estaExentoCheck").checked = data.estaExento ==="S" ;
 
     let newOption1 = new Option(        data.tiposDocumentoIdentidadExpor.nombreDocumentoIdentidad,
@@ -85,8 +78,8 @@ function populateFormExportadorConsultar(data,opcion){
         let newOption7 = new Option(data.tiposDocumentoIdentidadRepresentante.nombreDocumentoIdentidad,
             data.tiposDocumentoIdentidadRepresentante.codigoTipoDocumentoIdentida, true, true);
         $('#tiposDocumentoIdentidadRepresentante').append(newOption7).trigger('change');
-    }
-}*/
+    }*/
+}
 
 
 jQuery(function ($) {

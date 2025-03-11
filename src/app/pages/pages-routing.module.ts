@@ -32,13 +32,28 @@ const routes: Routes = [
           pathMatch: 'full'
         },
         {
-          path: 'tabla/personasInscritas',
+          path: 'personas-inscritas',
           component: PersonasComponent,
           pathMatch: 'full'
         },
         {
-          path: 'tabla/pacientes',
+          path: 'pacientes',
           component: PacientesComponent,
+          pathMatch: 'full'
+        },
+        {
+          path: 'pacientes/registrar',
+          component: FichaAdultoComponent,
+          pathMatch: 'full'
+        },
+        {
+          path: 'pacientes/:accion/:codigoPersona',
+          component: FichaAdultoComponent,
+          pathMatch: 'full'
+        },
+        {
+          path: 'pacientes/:accion/:codigoPersona',
+          component: FichaAdultoComponent,
           pathMatch: 'full'
         },
         {

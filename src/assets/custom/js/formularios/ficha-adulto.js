@@ -1,6 +1,5 @@
-const TABLE_ID = '#paisesDT';
+const TABLE_ID = '#pacientesDT';
 const FORM_ID = '#formFichaAdulto';
-const FORM_ID_MOD = '#formInscribirExportador';
 const  CAN_EDIT = true;
 const  CAN_CONSULT = true;
 const  CAN_ACTIVAR = true;
@@ -32,58 +31,6 @@ function edit(row) {
         populateFormExportadorConsultar(data,1);//1: modificar*/
 }
 
-
-function consultar(row){
-    /*let data = $(TABLE_ID).DataTable().row(row).data();
-    populateFormExportadorConsultar(data,2);//2: consultar
-    */
-}
-
-
-/*
-function populateFormExportadorConsultar(data,opcion){
-    if(opcion === 1 ){
-        populateForm($(FORM_ID_MOD)[0], data);
-    }else{
-        populateForm($(FORM_ID)[0], data);
-    }
-
-
-    document.getElementById("esGranContribuyenteCheck").checked = data.esGranContribuyente ==="S" ;
-    document.getElementById("estaExentoCheck").checked = data.estaExento ==="S" ;
-
-    let newOption1 = new Option(        data.tiposDocumentoIdentidadExpor.nombreDocumentoIdentidad,
-        data.tiposDocumentoIdentidadExpor.codigoTipoDocumentoIdentida, true, true);
-    $('#tiposDocumentoIdentidadExpor').append(newOption1).trigger('change');
-
-    let newOption2 = new Option(data.pais1.nombrePais,
-        data.pais1.codigoPais, true, true);
-    $('#pais1').append(newOption2).trigger('change');
-
-    let newOption3 = new Option(data.paisExportador.nombrePais,
-        data.paisExportador.codigoPais, true, true);
-    $('#codigoPais').append(newOption3).trigger('change');
-
-    let newOption4 = new Option(data.departamento.nombreDepartamento,
-        data.municipio.id.departamento.id.codigoDepartamento, true, true);
-    $('#departamento').append(newOption4).trigger('change');
-
-    let newOption5 = new Option(data.municipio.nombreMunicipio,
-        data.municipio.id.codigoMunicipio, true, true);
-    $('#municipio').append(newOption5).trigger('change');
-
-    if(data.pais2 !== null){
-        let newOption6 = new Option(data.pais2.nombrePais,
-            data.pais2.codigoPais, true, true);
-        $('#pais2').append(newOption6).trigger('change');
-    }
-
-    if(data.tiposDocumentoIdentidadRepresentante !== null){
-        let newOption7 = new Option(data.tiposDocumentoIdentidadRepresentante.nombreDocumentoIdentidad,
-            data.tiposDocumentoIdentidadRepresentante.codigoTipoDocumentoIdentida, true, true);
-        $('#tiposDocumentoIdentidadRepresentante').append(newOption7).trigger('change');
-    }
-}*/
 
 const select2Grouped = function (selector, url, rows) {
     $(selector).select2({
@@ -141,7 +88,128 @@ function toggleField(radio,idRadio,input,input2){
     });
 }
 
+function cargarDatosPersona(codigoPersona){
+    $.ajax({
+        url: BACKEND_URL +'/api/fichaAdulto/getPersona',
+        data: { codigoPersona: codigoPersona },
+        type: 'GET',
+        contentType: 'application/json',
+        success: function(response) {
+            populateForm($(FORM_ID)[0], response.data);
+            cargarSelect(response.data);
+        },
+        error: function(error) {
+            console.log("Hubo un error al enviar los datos", error);
+        }
+    });
+}
+
+function cargarSelect(data){
+    if(data.lugarNacimiento !== null){
+        let newOption1 = new Option(data.lugarNacimiento,
+            data.lugarNacimiento, true, true);
+        $('#lugarNacimiento').append(newOption1).trigger('change');
+    }
+
+    if(data.gradoAcademico !== null){
+        let newOption2 = new Option(data.gradoAcademico.descripcion,
+            data.gradoAcademico.codigoGrado, true, true);
+        $('#gradoAcademico').append(newOption2).trigger('change');
+    }
+
+    if(data.servicio !== null){
+        let newOption3 = new Option(data.servicio.descripcion,
+            data.servicio.codServicio, true, true);
+        $('#servicio').append(newOption3).trigger('change');
+    }
+
+    if (data.modalidadServicio !== null) {
+        let modalidadDescripcion = "";
+        if (data.modalidadServicio === "P") {
+            modalidadDescripcion = "PRESENCIAL";
+        } else if (data.modalidadServicio === "V") {
+            modalidadDescripcion = "VIRTUAL";
+        }
+        let newOption4 = new Option(modalidadDescripcion, data.modalidadServicio, true, true);
+        $('#modalidadServicio').append(newOption4).trigger('change');
+    }
+
+    if(data.tieneHijo === 'S'){
+        $('#hijosSi').prop('checked', true);
+        $('#hijosNo').prop('checked', false);
+    }else{
+        $('#hijosSi').prop('checked', false);
+        $('#hijosNo').prop('checked', true);
+    }
+
+    if(data.estudia === 'S'){
+        $('#estudiaSi').prop('checked', true);
+        $('#estudiaNo').prop('checked', false);
+    }else{
+        $('#estudiaSi').prop('checked', false);
+        $('#estudiaNo').prop('checked', true);
+    }
+
+    if(data.trabaja === 'S'){
+        $('#trabajaSi').prop('checked', true);
+        $('#trabajaNo').prop('checked', false);
+    }else{
+        $('#trabajaSi').prop('checked', false);
+        $('#trabajaNo').prop('checked', true);
+    }
+
+    if(data.enfermedad === 'S'){
+        $('#enfermedadSi').prop('checked', true);
+        $('#enfermedadNo').prop('checked', false);
+    }else{
+        $('#enfermedadSi').prop('checked', false);
+        $('#enfermedadNo').prop('checked', true);
+    }
+
+    if(data.antecedentes === 'S'){
+        $('#antecedentesSi').prop('checked', true);
+        $('#antecedentesNo').prop('checked', false);
+    }else{
+        $('#antecedentesSi').prop('checked', false);
+        $('#antecedentesNo').prop('checked', true);
+    }
+
+    if(data.tratamiento === 'S'){
+        $('#tratamientoSi').prop('checked', true);
+        $('#tratamientoNo').prop('checked', false);
+    }else{
+        $('#tratamientoSi').prop('checked', false);
+        $('#tratamientoNo').prop('checked', true);
+    }
+
+}
+
+function formModoConsulta(formulario) {
+    // Bloquea campos de tipo input y textarea a readonly
+    $(formulario).find("input, textarea").prop("readonly", true);
+
+    // Bloquea los checkboxes y radios a disabled para evitar interacción
+    $(formulario).find("input[type='checkbox'], input[type='radio']").prop("disabled", true);
+
+    // Bloquea los select para evitar la selección de nuevas opciones
+    $(formulario).find("select").prop("disabled", true);
+}
+
 jQuery(function ($) {
+
+    //consultamos los valores del input accion.
+    var accion = $("#accion").val();
+    var codigoPersona = $("#codigoPersona").val()
+
+    if(accion === 'consultar'){
+        formModoConsulta(FORM_ID);
+        cargarDatosPersona(codigoPersona);
+        $("#saveButton").hide();
+    }else if(accion === 'modificar'){
+        cargarDatosPersona(codigoPersona);
+    }else{
+        console.log('nuevo');
+    }
 
     $("#saveButton").hide();
     $("#nextButton").show();
@@ -155,6 +223,8 @@ jQuery(function ($) {
     $("#enfermedadEspecifica").prop("disabled", true);
     $("#diagnosticoFamiliar").prop("disabled", true);
     $("#diagnosticoPropio").prop("disabled", true);
+    $("#medicamentos").prop("disabled", true);
+    $("#tiempoTratamiento").prop("disabled", true);
     $("#consultaAnterior").prop("disabled", true);
     $("#anioConsultaAnterior").prop("disabled", true);
 
@@ -165,6 +235,8 @@ jQuery(function ($) {
      toggleField('radio4','#enfermedadSi', '#enfermedadEspecifica','#padeceEnfermedad');
      toggleField('radio5','#antecedentesSi', '#diagnosticoFamiliar','#existeAntecedentePsi');
      toggleField('radio6', '#tratamientoSi','#diagnosticoPropio','#tratamientoPsicoActual');
+     toggleField('radio6', '#tratamientoSi','#medicamentos','#tratamientoPsicoActual');
+     toggleField('radio6', '#tratamientoSi','#tiempoTratamiento','#tratamientoPsicoActual');
      toggleField('radio7', '#consultasSi','#consultaAnterior','#asistioConsultaPsi');
      toggleField('radio7', '#consultasSi','#anioConsultaAnterior','#asistioConsultaPsi');
 
@@ -195,15 +267,19 @@ jQuery(function ($) {
 
      //checkboxes
    $("#nextButton").on('click',function(){
+       if(accion !== 'consultar'){
+           isValidForm = $("#formFichaAdulto").valid();
 
-        isValidForm = $("#formFichaAdulto").valid();
-
-        if(isValidForm === true){
-            const stepper = new Stepper(document.querySelector('#stepper'));
-            stepper.next();
-            $("#saveButton").show();
-            $("#nextButton").hide();
-        }
+           if(isValidForm === true){
+               const stepper = new Stepper(document.querySelector('#stepper'));
+               stepper.next();
+               $("#saveButton").show();
+               $("#nextButton").hide();
+           }
+       }else{
+           const stepper = new Stepper(document.querySelector('#stepper'));
+           stepper.next();
+       }
     });
 
     $("#previousButton").on('click',function(){
@@ -220,8 +296,5 @@ jQuery(function ($) {
             $("#saveButton").attr("disabled", true);
         }
     });
-
-
-
 
 });

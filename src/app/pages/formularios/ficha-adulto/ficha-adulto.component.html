@@ -23,6 +23,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <form action="/api/fichaAdulto/save" method="post" id="formFichaAdulto">
+                        <input type="hidden" name="codigoPersona" id="codigoPersona" class="form-control" [value]="codigoPersona">
+                        <input type="hidden" name="accion" id="accion" class="form-control" [value]="accion">
                         <input type="hidden" name="tieneHijo" id="tieneHijo" class="form-control">
                         <input type="hidden" name="estudia" id="estudia" class="form-control">
                         <input type="hidden" name="trabaja" id="trabaja" class="form-control">
@@ -56,9 +58,13 @@
                                         <div id="datos-general" class="content" role="tabpanel" aria-labelledby="datos-general-trigger">
                                             <div class="card-body">
                                                 <div class="row">
-                                                    <div class="form-group col-sm-12">
-                                                        <label class="label-color-principal">Nombre Completo:</label>
-                                                        <input id="nombres" name="nombres" type="text" class="form-control" placeholder="Ingrese Nombre Completo" maxlength="100" required>
+                                                    <div class="form-group col-sm-6">
+                                                        <label class="label-color-principal">Apellidos:</label>
+                                                        <input id="apellidos" name="apellidos" type="text" class="form-control" placeholder="Ingrese sus Apellidos" maxlength="100" required>
+                                                    </div>
+                                                    <div class="form-group col-sm-6">
+                                                        <label class="label-color-principal">Nombres:</label>
+                                                        <input id="nombres" name="nombres" type="text" class="form-control" placeholder="Ingrese sus Nombres" maxlength="100" required>
                                                     </div>
                                                 </div>
                                                 <!-- radio -->
@@ -72,7 +78,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-sm-4">
-                                                        <label class="label-color-principal" for="lugarNacimiento">Lugar de Nacimiento:
+                                                        <label class="label-color-principal" for="lugarNacimiento">Lugar de nacimiento:
                                                         </label>
                                                         <div class="input-group mb-3">
                                                             <div class="flex-fill">
@@ -114,21 +120,21 @@
                                                     </div>
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
-                                                            <label class="label-color-principal" for="telefono1">No. Teléfono casa:</label>
+                                                            <label class="label-color-principal" for="telefono1">No. teléfono casa:</label>
                                                             <input type="text" name="telefono1" id="telefono1" class="form-control" placeholder="Ingrese No. Teléfono casa" maxlength="12" required>
                                                         </div>
                                                     </div>
-                                                    <div class="col-sm-4">
+                                                    <!-- <div class="col-sm-4">
                                                         <div class="form-group">
                                                             <label class="label-color-principal" for="telefono2">No. teléfono adicional:</label>
                                                             <input type="text" name="telefono2" id="telefono2" class="form-control" placeholder="Ingrese No. teléfono adicional" maxlength="12" required>
                                                         </div>
-                                                    </div>
+                                                    </div>-->
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
-                                                            <label class="label-color-principal" for="lugarResidencia">Dirección Actual Completa de Residencia:</label>
+                                                            <label class="label-color-principal" for="lugarResidencia">Dirección actual completa de residencia:</label>
                                                             <input type="text"  name="lugarResidencia" id="lugarResidencia" class="form-control"
                                                                    placeholder="Ingrese Dirección Actual Completa de Residencia" maxlength="255" required>
                                                         </div>
@@ -160,7 +166,7 @@
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
-                                                            <label class="label-color-principal" for="cantidadHijo">Cuantos Hijos Tiene:</label>
+                                                            <label class="label-color-principal" for="cantidadHijo">Cuantos hijos tiene:</label>
                                                             <input type="number" name="cantidadHijo" id="cantidadHijo" class="form-control" placeholder="Ingrese Cuantos Hijos Tiene" min="0" max="20">
                                                         </div>
                                                     </div>
@@ -202,7 +208,7 @@
                                                     </div>
                                                     <div class="col-sm-8">
                                                         <div class="form-group">
-                                                            <label class="label-color-principal" for="lugarEstudio">Lugar de Estudio:</label>
+                                                            <label class="label-color-principal" for="lugarEstudio">Nombre lugar de Estudio:</label>
                                                             <input type="text" name="lugarEstudio"  id="lugarEstudio" class="form-control" placeholder="Ingrese Lugar de Estudio" maxlength="150">
                                                         </div>
                                                     </div>
@@ -228,7 +234,7 @@
                                                     </div>
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
-                                                            <label class="label-color-principal" for="lugarTrabajo">Lugar de Trabajo:</label>
+                                                            <label class="label-color-principal" for="lugarTrabajo">Nombre lugar de Trabajo:</label>
                                                             <input type="text"  name="lugarTrabajo" id="lugarTrabajo" class="form-control"
                                                                    placeholder="Ingrese Lugar de Trabajo" maxlength="150">
                                                         </div>
@@ -370,7 +376,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-sm-6">
-                                                    <label class="label-color-principal">¿Desde cuándo se presenta el problema?</label>
+                                                    <label class="label-color-principal">¿Desde cuándo se presenta el problema? (Si no recuerda la fecha exacta, ingrese una aproximada).</label>
                                                     <div class="input-group mb-3">
                                                         <input type="text" name="desdeProblema" id="desdeProblema"
                                                                class="form-control datetimepicker-input datepicker" data-toggle="datetimepicker"
@@ -379,9 +385,9 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-sm-4">
+                                                <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <label class="label-color-principal">¿Ha asistido antes a consultas psicológica?</label>
+                                                        <label class="label-color-principal">¿Ha asistido antes a un proceso de terapia psicológica?</label>
                                                         <div class="form-check-inline">
                                                             <div class="form-check">
                                                                 <input class="form-check-input" type="radio" name="radio7" id="consultasSi">
@@ -397,7 +403,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="form-group col-sm-4">
-                                                    <label class="label-color-principal">¿En que año?</label>
+                                                    <label class="label-color-principal">¿En que fecha asistió a su proceso de terapia psicológica?</label>
                                                     <div class="input-group mb-3">
                                                         <input type="text" name="anioConsultaAnterior" id="anioConsultaAnterior"
                                                                class="form-control datetimepicker-input datepicker" data-toggle="datetimepicker"
@@ -439,7 +445,9 @@
                                             <div class="row">
                                                 <div class="col-sm-12">
                                                     <div class="form-group">
-                                                        <label class="label-color-principal" for="comentariosAdicional">Comentarios adicionales</label>
+                                                        <label class="label-color-principal" for="comentariosAdicional">Comentarios adicionales: en este espacio puede incluir cualquier
+                                                            otro dato que considere es relevante para el Servicio que solicita. De no tener comentarios,
+                                                            colocar "Ninguno".: </label>
                                                         <textarea class="form-control" name="comentariosAdicional" id="comentariosAdicional" rows="3"
                                                                   placeholder="Ingrese comentario adicional" maxlength="200" required></textarea>
                                                     </div>
